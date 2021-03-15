@@ -175,6 +175,10 @@ void ocall_gettime( const char *name="\0", int is_end=false)
     return;
 }
 
+void loop(int tid) {
+    printf("\033[34m [loop][thread][%d][begin] \033[0m\n", tid);
+    ecall_loop(global_eid, tid);
+}
 static std::atomic<bool> input_load_flag[THREAD_NUM];
 static std::function<void()> load_func_ptrs[THREAD_NUM];
 
@@ -209,19 +213,15 @@ int SGX_CDECL main(int argc, char *argv[])
         getchar();
         return -1; 
     }
-    ocall_gettime(1);
 
     // printf("\033[34m handle_cache_size \033[0m\n");
     // //needed
     // handle_cache_size();
     printf("\033[34m eigen init inside enclave \033[0m\n");
-    eigen_init();
 
     printf("\033[34m threads_init \033[0m\n");
     threads_init();
 
-    // eval_plain(argc, argv);
-    eval_cipher(argc, argv);
 
     printf("\033[34m threads_finish \033[0m\n");
     threads_finish();
