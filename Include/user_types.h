@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2019 Intel Corporation. All rights reserved.
+ * Copyright (C) 2011-2020 Intel Corporation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,14 +30,6 @@
  */
 
 
-/* User defined types */
-
-
-// #define LOOPS_PER_THREAD 500
-
-// typedef void *buffer_t;
-// typedef int array_t[10];
-
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"
@@ -46,4 +38,5 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
-#define CLIENTNUM 100
+#define TIMEPRINT false
+#define DATATYPE double

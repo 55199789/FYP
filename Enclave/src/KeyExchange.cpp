@@ -1,9 +1,11 @@
 #include "Enclave.h"
 #include "Enclave_t.h"
 
+#include <string.h>
+#include "sgx_dh.h"
 #include "KeyExchange.h"
 
-void generate_key(sgx_key_128bit_t &dh_aek) {
+uint32_t generate_key(double &totTime,sgx_key_128bit_t &dh_aek) {
     double t_session_creation, t_msg1, t_msg2, t_msg3;
     ocall_gettime(&t_session_creation, "\0", 0);
     sgx_dh_msg1_t dh_msg1;            //Diffie-Hellman Message 1
@@ -65,13 +67,13 @@ void generate_key(sgx_key_128bit_t &dh_aek) {
         return status;
     }
     ocall_gettime(&t_msg3, "[ECALL] Server generates message 3", 1);
-
-printf("Shared Key: \n");
-for(int i=0;i<16;i++) {
-printf("%02X", dh_aek[i]);
+if(TIMEPRINT) {
+    printf("Shared Key: \n");
+    for(int i=0;i<16;i++) {
+    printf("%02X", dh_aek[i]);
+    }
+    printf("\n\n");
 }
-printf("\n\n");
-
     // Client generates aek - not necessarily
     // status = sgx_dh_initiator_proc_msg3(&dh_msg3, 
     //                 &sgx_dh_session_client, 
@@ -82,6 +84,6 @@ printf("\n\n");
     //     return status;
     // }
     // printf("[ECALL] Client processes message 3 successfully.\n");
-    printf("%sTotal DHKE time in server: %fs\n\n\n", KRED, \
-        t_session_creation + t_msg1 + t_msg3 + t_enter);
+    totTime += t_session_creation + t_msg1 + t_msg3;
+    return SGX_SUCCESS;
 }

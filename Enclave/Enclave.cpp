@@ -8,6 +8,8 @@
 #include "threads_conf.h"
 #include "sgx_tcrypto.h"
 #include "KeyExchange.h"
+#include "utils.h"
+#include "user_types.h"
 //#include <sgx_intrin.h>
 
 //#include "xmmintrin.h"
@@ -117,94 +119,50 @@ void threads_init() {
     }
 }
 
-uint32_t ecall_key_exchange(int clientNum) {
+uint32_t ecall_clear_final_x(DATATYPE *final_x, uint32_t dim) {
+    uint8_t ctr[16] = {0};
+    const uint32_t LDN = dim<(90<<20) / sizeof(DATATYPE)? \
+                dim:(90<<20) / sizeof(DATATYPE); // 90 MB / (2*sizeof(dt))
+    const uint32_t TMS = LDN==dim?1:dim/LDN;
+    DATATYPE *tmp = new DATATYPE[LDN];
+// Testing code
+printf("%d %d\n", LDN, TMS);
+// End testing
+    memset(tmp, 0, sizeof(DATATYPE)*LDN);
+    for(int i=0;i<TMS;i++)
+        if(sgx_aes_ctr_encrypt(&KEY_Z, (uint8_t *)tmp, LDN * sizeof(DATATYPE),\
+                 ctr, 128, (uint8_t *)(final_x + i*LDN)) != SGX_SUCCESS)
+            printf("\033[33m scData: sgx_aes_ctr_encrypt failed \033[0m\n");
+    if(dim%LDN)
+        if(sgx_aes_ctr_encrypt(&KEY_Z, (uint8_t *)tmp, \
+                (dim - LDN*TMS) * sizeof(DATATYPE),\
+                 ctr, 128, (uint8_t *)(final_x + TMS*LDN)) != SGX_SUCCESS)
+            printf("\033[33m scData: sgx_aes_ctr_encrypt failed \033[0m\n");
+    delete[] tmp;    
+    return SGX_SUCCESS;
+}
+
+uint32_t ecall_aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
+            uint32_t clientNum, uint32_t dim) {
     double t_enter;
     ocall_gettime(&t_enter, "Enter enclave", 1);
-
+    sgx_key_128bit_t *client_keys = new sgx_key_128bit_t[clientNum];
+    double t_keys = 0;
     for(int i=0;i<clientNum;i++) {
+        // Generate Session Key
+        uint32_t ret = generate_key(t_keys, client_keys[i]);
+        if (ret!=SGX_SUCCESS) 
+            goto ret;
+
+        // sgx_aes_ctr_encrypt(client_keys+i, )
+
+        // Decrypt and aggregate the data
 
     }
-    // Message 1
-    double t_session_creation, t_msg1, t_msg2, t_msg3;
-    ocall_gettime(&t_session_creation, "\0", 0);
-    sgx_dh_msg1_t dh_msg1;            //Diffie-Hellman Message 1
-    sgx_key_128bit_t dh_aek;        // Session Key
-    sgx_dh_msg2_t dh_msg2;            //Diffie-Hellman Message 2
-    sgx_dh_msg3_t dh_msg3;            //Diffie-Hellman Message 3
-    sgx_dh_session_t sgx_dh_session_client, sgx_dh_session_server;
-    sgx_status_t status = SGX_SUCCESS;
-	sgx_dh_session_enclave_identity_t initiator_identity, \
-                responder_identity;
-    memset(&dh_aek,0, sizeof(sgx_key_128bit_t));
-    memset(&dh_msg1, 0, sizeof(sgx_dh_msg1_t));
-    memset(&dh_msg2, 0, sizeof(sgx_dh_msg2_t));
-    memset(&dh_msg3, 0, sizeof(sgx_dh_msg3_t));
-    status = sgx_dh_init_session(SGX_DH_SESSION_RESPONDER, 
-                    &sgx_dh_session_server);
-    if (status != SGX_SUCCESS) {
-        printf("Initialize Sever session faied.\n");
-        return status;
-    }
-    ocall_gettime(&t_session_creation, \
-            "[ECALL] Create the server session", 1);
-    
-    // From server to client
-    ocall_gettime(&t_msg1, "\0", 0);
-    status = sgx_dh_responder_gen_msg1((sgx_dh_msg1_t*)&dh_msg1, \
-                    &sgx_dh_session_server);
-    if (status != SGX_SUCCESS) {
-        printf("Server generates msg1 failed.\n");
-        return status;
-    }
-    ocall_gettime(&t_msg1, \
-            "[ECALL] Server generates message 1", 1);
-
-    // From client to server
-    ocall_gettime(&t_msg2, "\0", 0);
-    status = sgx_dh_init_session(SGX_DH_SESSION_INITIATOR, \
-                        &sgx_dh_session_client);
-    if (status != SGX_SUCCESS) {
-        printf("Initialize Client session faied.\n");
-        return status;
-    }
-    // printf("[ECALL] Create the client session successfully.\n");
-    status = sgx_dh_initiator_proc_msg1(&dh_msg1, &dh_msg2, \
-                        &sgx_dh_session_client);
-    if (status != SGX_SUCCESS) {
-        printf("Client processes msg1 failed.\n");
-        return status;
-    }
-    // printf("[ECALL] Client processes message 1 successfully.\n");
-    ocall_gettime(&t_msg2, "[ECALL] Client genreates msg2", 1);
-
-    // From server to client
-    ocall_gettime(&t_msg3, "\0", 0);
-    status = sgx_dh_responder_proc_msg2(&dh_msg2, &dh_msg3, \
-                    &sgx_dh_session_server, &dh_aek,
-                    &initiator_identity);
-    if (status != SGX_SUCCESS) {
-        printf("Server generates msg3 failed.\n");
-        return status;
-    }
-    ocall_gettime(&t_msg3, "[ECALL] Server generates message 3", 1);
-
-printf("Shared Key: \n");
-for(int i=0;i<16;i++) {
-    printf("%02X", dh_aek[i]);
-}
-printf("\n\n");
-
-    // Client generates aek - not necessarily
-    // status = sgx_dh_initiator_proc_msg3(&dh_msg3, 
-    //                 &sgx_dh_session_client, 
-    //                 &dh_aek, 
-    //                 &responder_identity);
-    // if (status != SGX_SUCCESS) {
-    //     printf("Client processes msg3 failed.\n");
-    //     return status;
-    // }
-    // printf("[ECALL] Client processes message 3 successfully.\n");
-    printf("%sTotal DHKE time in server: %fs\n\n\n", KRED, \
-        t_session_creation + t_msg1 + t_msg3 + t_enter);
+    printf("%sTime of key exchanges for %d clients: %fms\n%s\n", KRED, \
+        clientNum, t_keys*1000, KNRM);
+ret:
+    delete[] client_keys;
+    delete[] final_x;
     return SGX_SUCCESS;
 }

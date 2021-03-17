@@ -3,6 +3,6 @@
 
 #include "sgx.h"
 
-void generate_key(sgx_key_128bit_t &dh_aek);
+uint32_t generate_key(double &totTime, sgx_key_128bit_t &dh_aek);
 
 #endif

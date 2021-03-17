@@ -31,10 +31,19 @@ typedef struct ms_ecall_loop_t {
 	int ms_tid;
 } ms_ecall_loop_t;
 
-typedef struct ms_ecall_key_exchange_t {
+typedef struct ms_ecall_clear_final_x_t {
 	uint32_t ms_retval;
-	int ms_clientNum;
-} ms_ecall_key_exchange_t;
+	DATATYPE* ms_final_x;
+	uint32_t ms_dim;
+} ms_ecall_clear_final_x_t;
+
+typedef struct ms_ecall_aggregate_t {
+	uint32_t ms_retval;
+	DATATYPE* ms_dataMat;
+	DATATYPE* ms_final_x;
+	uint32_t ms_clientNum;
+	uint32_t ms_dim;
+} ms_ecall_aggregate_t;
 
 typedef struct ms_ocall_print_string_t {
 	const char* ms_str;
@@ -72,19 +81,40 @@ static sgx_status_t SGX_CDECL sgx_ecall_threads_down(void* pms)
 	return status;
 }
 
-static sgx_status_t SGX_CDECL sgx_ecall_key_exchange(void* pms)
+static sgx_status_t SGX_CDECL sgx_ecall_clear_final_x(void* pms)
 {
-	CHECK_REF_POINTER(pms, sizeof(ms_ecall_key_exchange_t));
+	CHECK_REF_POINTER(pms, sizeof(ms_ecall_clear_final_x_t));
 	//
 	// fence after pointer checks
 	//
 	sgx_lfence();
-	ms_ecall_key_exchange_t* ms = SGX_CAST(ms_ecall_key_exchange_t*, pms);
+	ms_ecall_clear_final_x_t* ms = SGX_CAST(ms_ecall_clear_final_x_t*, pms);
 	sgx_status_t status = SGX_SUCCESS;
+	DATATYPE* _tmp_final_x = ms->ms_final_x;
 
 
 
-	ms->ms_retval = ecall_key_exchange(ms->ms_clientNum);
+	ms->ms_retval = ecall_clear_final_x(_tmp_final_x, ms->ms_dim);
+
+
+	return status;
+}
+
+static sgx_status_t SGX_CDECL sgx_ecall_aggregate(void* pms)
+{
+	CHECK_REF_POINTER(pms, sizeof(ms_ecall_aggregate_t));
+	//
+	// fence after pointer checks
+	//
+	sgx_lfence();
+	ms_ecall_aggregate_t* ms = SGX_CAST(ms_ecall_aggregate_t*, pms);
+	sgx_status_t status = SGX_SUCCESS;
+	DATATYPE* _tmp_dataMat = ms->ms_dataMat;
+	DATATYPE* _tmp_final_x = ms->ms_final_x;
+
+
+
+	ms->ms_retval = ecall_aggregate(_tmp_dataMat, _tmp_final_x, ms->ms_clientNum, ms->ms_dim);
 
 
 	return status;
@@ -92,24 +122,25 @@ static sgx_status_t SGX_CDECL sgx_ecall_key_exchange(void* pms)
 
 SGX_EXTERNC const struct {
 	size_t nr_ecall;
-	struct {void* ecall_addr; uint8_t is_priv; uint8_t is_switchless;} ecall_table[3];
+	struct {void* ecall_addr; uint8_t is_priv; uint8_t is_switchless;} ecall_table[4];
 } g_ecall_table = {
-	3,
+	4,
 	{
 		{(void*)(uintptr_t)sgx_ecall_loop, 0, 0},
 		{(void*)(uintptr_t)sgx_ecall_threads_down, 0, 0},
-		{(void*)(uintptr_t)sgx_ecall_key_exchange, 0, 0},
+		{(void*)(uintptr_t)sgx_ecall_clear_final_x, 0, 0},
+		{(void*)(uintptr_t)sgx_ecall_aggregate, 0, 0},
 	}
 };
 
 SGX_EXTERNC const struct {
 	size_t nr_ocall;
-	uint8_t entry_table[2][3];
+	uint8_t entry_table[2][4];
 } g_dyn_entry_table = {
 	2,
 	{
-		{0, 0, 0, },
-		{0, 0, 0, },
+		{0, 0, 0, 0, },
+		{0, 0, 0, 0, },
 	}
 };
 

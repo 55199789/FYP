@@ -145,7 +145,7 @@ Enclave_Include_Paths := -IInclude -IEnclave -I$(SGX_SDK)/include -I$(SGX_SDK)/i
 #add by Ice
 Enclave_Include_Paths += -I/usr/lib/gcc/x86_64-linux-gnu/7/include
 # Enclave_Include_Paths +=  -IInclude/eigen3_sgx -IEnclave/base_model -IInclude/intrinsic
-# Enclave_Include_Paths +=  -IInclude/intrinsic
+Enclave_Include_Paths +=  -IInclude/include
 
 
 Enclave_C_Flags := $(Enclave_Include_Paths) -nostdinc -fvisibility=hidden -fpie -ffunction-sections -fdata-sections

@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-
+#include <time.h> 
+#include <stdlib.h>
 # include <unistd.h>
 # include <pwd.h>
 # define MAX_PATH FILENAME_MAX
@@ -161,7 +162,7 @@ void ocall_print_string(const char *str)
 }
 
 
-double ocall_gettime( const char *name="\0", int is_end=false)
+double ocall_gettime(const char *name="\0", int is_end=false)
 {
     static std::chrono::time_point<std::chrono::high_resolution_clock> \
                             begin_time, end_time;
@@ -175,8 +176,10 @@ double ocall_gettime( const char *name="\0", int is_end=false)
     } else {
         end_time = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end_time - begin_time;
-        printf("%s%s Time elapsed: %fs\n\n", KYEL, name, elapsed.count());
-        printf("%s", KNRM);
+        if(TIMEPRINT) {
+            printf("%s%s Time elapsed: %fs\n\n", KYEL, name, elapsed.count());
+            printf("%s", KNRM);
+        }
         return elapsed.count();
     }
 
@@ -207,11 +210,30 @@ void threads_finish() {
         threads[i].join();
 }
 
-int key_exchange() {
-    printf("Stage 1: Diffie Hellman Key Exchange\n");
+void generate_data(DATATYPE *arr, int clientNum, int dim) {
+    for(int i=0;i<clientNum;i++)
+        for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
+}
+
+int aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
+                int clientNum, int dim) {
     uint32_t ret = SGX_ERROR_UNEXPECTED;
     ocall_gettime();
-    ecall_key_exchange(global_eid, &ret, CLIENTNUM);
+// Testing code
+for(int i=0;i<10;i++) printf("%f ", final_x[i]);
+printf("\n");
+// Testing end
+    ecall_clear_final_x(global_eid, &ret, final_x, dim);
+    if (ret != SGX_SUCCESS) {
+        print_error_message(ret);
+        return -1;
+    }
+    printf("Clear final x successfully.\n");
+// Testing code
+for(int i=0;i<10;i++)printf("%f ", final_x[i]);
+printf("\n");
+// Testing end
+    ecall_aggregate(global_eid, &ret, dataMat, final_x, clientNum, dim);
     if (ret != SGX_SUCCESS) {
         print_error_message(ret);
         return -1;
@@ -224,7 +246,16 @@ int SGX_CDECL main(int argc, char *argv[])
 {
     (void)(argc);
     (void)(argv);
-    double t_enclave_creatation, t_session_creation;
+    if(argc!=3) {
+        printf("Usage: ./app CLIENTNUM DIM\n\n");
+        return 0;
+    }
+    double t_enclave_creatation;
+    int clientNum = atoi(argv[1]);
+    int dim = atoi(argv[2]);
+    srand(time(0));
+    DATATYPE *dataMat = new DATATYPE[clientNum * dim];
+    DATATYPE *final_x = new DATATYPE[dim];
     /* Initialize the enclave */
     printf("init enclave...\n");
     ocall_gettime();
@@ -233,10 +264,19 @@ int SGX_CDECL main(int argc, char *argv[])
         goto destroy_enclave;
     }
     t_enclave_creatation = ocall_gettime("Create enclave", 1);
-    if(key_exchange() < 0) {
-        printf("Failed to exchange keys.\n");
+    printf("%s[INFO] Create Enclave: %fms\n",KYEL, t_enclave_creatation*1000);
+
+    // Randomly generate data
+    generate_data(dataMat, clientNum, dim);
+    printf("\n%s[Info] Sizeof data matrix: %ldMB\n", KYEL, \
+                 (sizeof(DATATYPE)*clientNum*dim)>>20);
+
+    if(aggregate(dataMat, final_x, clientNum, dim) < 0) {
+        printf("Failed to aggregate.\n");
         goto destroy_enclave;
     }
+
+
     /* Destroy the enclave */
     ocall_gettime();
 destroy_enclave:
