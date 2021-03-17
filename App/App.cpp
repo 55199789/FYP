@@ -209,7 +209,7 @@ int SGX_CDECL main(int argc, char *argv[])
 {
     (void)(argc);
     (void)(argv);
-
+    double t_enclave_creatation, t_session_creation;
     /* Initialize the enclave */
     printf("init enclave...\n");
     ocall_gettime();
@@ -218,24 +218,34 @@ int SGX_CDECL main(int argc, char *argv[])
         goto destroy_enclave;
     }
     {
-    double t_enclave_creatation = ocall_gettime("Create enclave", 1);
+    t_enclave_creatation = ocall_gettime("Create enclave", 1);
     
     // Message 1
-    sgx_dh_msg1_t dh_msg1_client, dh_msg1_server;
-    sgx_key_128bit_t dh_aek_client, dh_aek_server;
-    sgx_dh_msg2_t dh_msg2_client, dh_msg2_server;
-    sgx_dh_msg3_t dh_msg3_client, dh_msg3_server;
-    sgx_dh_session_t sgx_dh_session_client, sgx_dh_session_server;
+    ocall_gettime();
+    sgx_dh_msg1_t dh_msg1;            //Diffie-Hellman Message 1
+    sgx_key_128bit_t dh_aek;        // Session Key
+    sgx_dh_msg2_t dh_msg2;            //Diffie-Hellman Message 2
+    sgx_dh_msg3_t dh_msg3;            //Diffie-Hellman Message 3
+    sgx_dh_session_t sgx_dh_session;
+    // sgx_dh_msg1_t dh_msg1_client, dh_msg1_server;
+    // sgx_key_128bit_t dh_aek_client, dh_aek_server;
+    // sgx_dh_msg2_t dh_msg2_client, dh_msg2_server;
+    // sgx_dh_msg3_t dh_msg3_client, dh_msg3_server;
+    // sgx_dh_session_t sgx_dh_session_client, sgx_dh_session_server;
     sgx_status_t status = SGX_SUCCESS;
-    
-    status = sgx_dh_init_session(SGX_DH_SESSION_RESPONDER, sgx_dh_session_server);
-    
-    
+    memset(&dh_aek,0, sizeof(sgx_key_128bit_t));
+    memset(&dh_msg1, 0, sizeof(sgx_dh_msg1_t));
+    memset(&dh_msg2, 0, sizeof(sgx_dh_msg2_t));
+    memset(&dh_msg3, 0, sizeof(sgx_dh_msg3_t));
+    status = sgx_dh_init_session(SGX_DH_SESSION_RESPONDER, &sgx_dh_session_server);
     if (status != SGX_SUCCESS) {
         print_error_message(status);
         goto destroy_enclave;
     }
-
+    t_session_creation = ocall_gettime("Create session", 1);
+    // From server to client
+    status = sgx_dh_responder_gen_msg1((sgx_dh_msg1_t*)&dh_msg1, &sgx_dh_session);
+    
 
     /* Destroy the enclave */
     ocall_gettime();
