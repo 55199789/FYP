@@ -28,6 +28,7 @@ double SGX_UBRIDGE(SGX_NOCONVENTION, ocall_gettime, (const char* name, int is_en
 
 sgx_status_t ecall_loop(sgx_enclave_id_t eid, int tid);
 sgx_status_t ecall_threads_down(sgx_enclave_id_t eid);
+sgx_status_t ecall_key_exchange(sgx_enclave_id_t eid, uint32_t* retval, int clientNum);
 
 #ifdef __cplusplus
 }

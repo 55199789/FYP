@@ -5,6 +5,11 @@ typedef struct ms_ecall_loop_t {
 	int ms_tid;
 } ms_ecall_loop_t;
 
+typedef struct ms_ecall_key_exchange_t {
+	uint32_t ms_retval;
+	int ms_clientNum;
+} ms_ecall_key_exchange_t;
+
 typedef struct ms_ocall_print_string_t {
 	const char* ms_str;
 } ms_ocall_print_string_t;
@@ -54,6 +59,16 @@ sgx_status_t ecall_threads_down(sgx_enclave_id_t eid)
 {
 	sgx_status_t status;
 	status = sgx_ecall(eid, 1, &ocall_table_Enclave, NULL);
+	return status;
+}
+
+sgx_status_t ecall_key_exchange(sgx_enclave_id_t eid, uint32_t* retval, int clientNum)
+{
+	sgx_status_t status;
+	ms_ecall_key_exchange_t ms;
+	ms.ms_clientNum = clientNum;
+	status = sgx_ecall(eid, 2, &ocall_table_Enclave, &ms);
+	if (status == SGX_SUCCESS && retval) *retval = ms.ms_retval;
 	return status;
 }
 

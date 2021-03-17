@@ -38,6 +38,7 @@ enclave {
         //multi-threading
         public void ecall_loop(int tid);
         public void ecall_threads_down();
+        public uint32_t ecall_key_exchange(int clientNum);
     };
     
     untrusted {

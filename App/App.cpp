@@ -8,15 +8,13 @@
 
 #include "sgx_trts.h"
 #include "sgx_urts.h"
-#include "sgx_ecp_types.h"
-#include "sgx_dh.h"
-#include "sgx_tcrypto.h"
 
 #include "App.h"
 #include "Enclave_u.h"
 
 #include <thread>
 
+#include "user_types.h"
 #include "threads_conf.h"
 
 // add by ice
@@ -111,7 +109,8 @@ static sgx_errlist_t sgx_errlist[] = {
 };
 
 /* Check error conditions for loading enclave */
-void print_error_message(sgx_status_t ret)
+template<class T>
+void print_error_message(T ret)
 {
     size_t idx = 0;
     size_t ttl = sizeof sgx_errlist/sizeof sgx_errlist[0];
@@ -176,7 +175,8 @@ double ocall_gettime( const char *name="\0", int is_end=false)
     } else {
         end_time = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = end_time - begin_time;
-        printf("%s Time elapsed: %fs\n\n", name, elapsed.count());
+        printf("%s%s Time elapsed: %fs\n\n", KYEL, name, elapsed.count());
+        printf("%s", KNRM);
         return elapsed.count();
     }
 
@@ -207,6 +207,18 @@ void threads_finish() {
         threads[i].join();
 }
 
+int key_exchange() {
+    printf("Stage 1: Diffie Hellman Key Exchange\n");
+    uint32_t ret = SGX_ERROR_UNEXPECTED;
+    ocall_gettime();
+    ecall_key_exchange(global_eid, &ret, CLIENTNUM);
+    if (ret != SGX_SUCCESS) {
+        print_error_message(ret);
+        return -1;
+    }
+    return 0;
+}
+
 /* Application entry */
 int SGX_CDECL main(int argc, char *argv[])
 {
@@ -220,46 +232,13 @@ int SGX_CDECL main(int argc, char *argv[])
         printf("Failed to load enclave.\n");
         goto destroy_enclave;
     }
-    {
     t_enclave_creatation = ocall_gettime("Create enclave", 1);
-    
-    // Message 1
-    ocall_gettime();
-    sgx_dh_msg1_t dh_msg1;            //Diffie-Hellman Message 1
-    sgx_key_128bit_t dh_aek;        // Session Key
-    sgx_dh_msg2_t dh_msg2;            //Diffie-Hellman Message 2
-    sgx_dh_msg3_t dh_msg3;            //Diffie-Hellman Message 3
-    sgx_dh_session_t sgx_dh_session;
-    // sgx_dh_msg1_t dh_msg1_client, dh_msg1_server;
-    // sgx_key_128bit_t dh_aek_client, dh_aek_server;
-    // sgx_dh_msg2_t dh_msg2_client, dh_msg2_server;
-    // sgx_dh_msg3_t dh_msg3_client, dh_msg3_server;
-    // sgx_dh_session_t sgx_dh_session_client, sgx_dh_session_server;
-    sgx_status_t status = SGX_SUCCESS;
-    memset(&dh_aek,0, sizeof(sgx_key_128bit_t));
-    memset(&dh_msg1, 0, sizeof(sgx_dh_msg1_t));
-    memset(&dh_msg2, 0, sizeof(sgx_dh_msg2_t));
-    memset(&dh_msg3, 0, sizeof(sgx_dh_msg3_t));
-    status = sgx_dh_init_session(SGX_DH_SESSION_RESPONDER, 
-                    &sgx_dh_session);
-    if (status != SGX_SUCCESS) {
-        print_error_message(status);
+    if(key_exchange() < 0) {
+        printf("Failed to exchange keys.\n");
         goto destroy_enclave;
     }
-    t_session_creation = ocall_gettime("Create session", 1);
-    
-    // From server to client
-    ocall_gettime();
-    status = sgx_dh_responder_gen_msg1((sgx_dh_msg1_t*)&dh_msg1, \
-                    &sgx_dh_session);
-    if (status != SGX_SUCCESS) {
-        print_error_message(status);
-        goto destroy_enclave;
-    }
-    ocall_gettime("Generate message 1");
     /* Destroy the enclave */
     ocall_gettime();
-    }
 destroy_enclave:
     sgx_destroy_enclave(global_eid);
     ocall_gettime("Destroy enclave", 1);    
