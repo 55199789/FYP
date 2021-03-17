@@ -65,17 +65,26 @@ endif
 ifeq ($(SGX_DEBUG), 1)
         SGX_COMMON_FLAGS += -O0 -g
 else
-        SGX_COMMON_FLAGS += -O2
+        SGX_COMMON_FLAGS += -O3
 endif
 
-SGX_COMMON_FLAGS += -Wall -Wextra -Winit-self -Wpointer-arith -Wreturn-type \
-                    -Waddress -Wsequence-point -Wformat-security \
-                    -Wmissing-include-dirs -Wfloat-equal -Wundef -Wshadow \
-                    -Wcast-align -Wcast-qual -Wconversion -Wredundant-decls
-SGX_COMMON_CFLAGS := $(SGX_COMMON_FLAGS) -Wjump-misses-init -Wstrict-prototypes -Wunsuffixed-float-constants
-SGX_COMMON_CXXFLAGS := $(SGX_COMMON_FLAGS) -Wnon-virtual-dtor -std=c++11
-
+ifeq ($(SGX_ARCH), x86)
+	SGX_COMMON_CFLAGS := -m32
+	SGX_LIBRARY_PATH := $(SGX_SDK)/lib
+	SGX_ENCLAVE_SIGNER := $(SGX_SDK)/bin/x86/sgx_sign
+	SGX_EDGER8R := $(SGX_SDK)/bin/x86/sgx_edger8r
+else
+	SGX_COMMON_CFLAGS := -m64
+	SGX_LIBRARY_PATH := $(SGX_SDK)/lib64
+	SGX_ENCLAVE_SIGNER := $(SGX_SDK)/bin/x64/sgx_sign
+	SGX_EDGER8R := $(SGX_SDK)/bin/x64/sgx_edger8r
+endif
 ######## App Settings ########
+ifeq ($(SGX_DEBUG), 1)
+ifeq ($(SGX_PRERELEASE), 1)
+$(error Cannot set SGX_DEBUG and SGX_PRERELEASE at the same time!!)
+endif
+endif
 
 ifneq ($(SGX_MODE), HW)
 	Urts_Library_Name := sgx_urts_sim
@@ -86,8 +95,7 @@ endif
 App_Cpp_Files := App/App.cpp $(wildcard App/Edger8rSyntax/*.cpp) $(wildcard App/TrustedLibrary/*.cpp)
 #App_Include_Paths := -IInclude -IApp -I$(SGX_SDK)/include
 #add by ice
-App_Include_Paths := -IInclude -IApp -I$(SGX_SDK)/include -IInclude/eigen3
-App_Include_Paths += -IInclude/cluster
+App_Include_Paths := -IInclude -IApp -I$(SGX_SDK)/include -I$(SGX_SDK)/include/ippcp 
 
 App_C_Flags := -fPIC -Wno-attributes $(App_Include_Paths)
 
@@ -129,12 +137,11 @@ Crypto_Library_Name := sgx_tcrypto
 
 # Enclave_Cpp_Files := Enclave/Enclave.cpp $(wildcard Enclave/Edger8rSyntax/*.cpp) $(wildcard Enclave/TrustedLibrary/*.cpp) $(wildcard Enclave/simd/*.cpp)
 Enclave_Cpp_Files := Enclave/Enclave.cpp $(wildcard Enclave/src/*.cpp)
-Enclave_Include_Paths := -IInclude -IEnclave -I$(SGX_SDK)/include -I$(SGX_SDK)/include/tlibc -I$(SGX_SDK)/include/libcxx
+Enclave_Include_Paths := -IInclude -IEnclave -I$(SGX_SDK)/include -I$(SGX_SDK)/include/tlibc -I$(SGX_SDK)/include/libcxx -I$(SGX_SDK)/include/epid
 #add by Ice
 Enclave_Include_Paths += -I/usr/lib/gcc/x86_64-linux-gnu/7/include
 # Enclave_Include_Paths +=  -IInclude/eigen3_sgx -IEnclave/base_model -IInclude/intrinsic
-Enclave_Include_Paths +=  -IInclude/eigen3_sgx -IInclude/intrinsic
-Enclave_Include_Paths +=  -IInclude/cluster
+# Enclave_Include_Paths +=  -IInclude/intrinsic
 
 
 Enclave_C_Flags := $(Enclave_Include_Paths) -nostdinc -fvisibility=hidden -fpie -ffunction-sections -fdata-sections

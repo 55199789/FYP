@@ -6,8 +6,11 @@
 # include <pwd.h>
 # define MAX_PATH FILENAME_MAX
 
+#include "sgx_trts.h"
 #include "sgx_urts.h"
+#include "sgx_ecp_types.h"
 #include "sgx_dh.h"
+#include "sgx_tcrypto.h"
 
 #include "App.h"
 #include "Enclave_u.h"
@@ -237,16 +240,23 @@ int SGX_CDECL main(int argc, char *argv[])
     memset(&dh_msg1, 0, sizeof(sgx_dh_msg1_t));
     memset(&dh_msg2, 0, sizeof(sgx_dh_msg2_t));
     memset(&dh_msg3, 0, sizeof(sgx_dh_msg3_t));
-    status = sgx_dh_init_session(SGX_DH_SESSION_RESPONDER, &sgx_dh_session_server);
+    status = sgx_dh_init_session(SGX_DH_SESSION_RESPONDER, 
+                    &sgx_dh_session);
     if (status != SGX_SUCCESS) {
         print_error_message(status);
         goto destroy_enclave;
     }
     t_session_creation = ocall_gettime("Create session", 1);
-    // From server to client
-    status = sgx_dh_responder_gen_msg1((sgx_dh_msg1_t*)&dh_msg1, &sgx_dh_session);
     
-
+    // From server to client
+    ocall_gettime();
+    status = sgx_dh_responder_gen_msg1((sgx_dh_msg1_t*)&dh_msg1, \
+                    &sgx_dh_session);
+    if (status != SGX_SUCCESS) {
+        print_error_message(status);
+        goto destroy_enclave;
+    }
+    ocall_gettime("Generate message 1");
     /* Destroy the enclave */
     ocall_gettime();
     }
