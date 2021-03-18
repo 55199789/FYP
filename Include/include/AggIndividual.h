@@ -6,6 +6,7 @@
 #include "sgx_tcrypto.h"
 
 uint32_t agg_individual(DATATYPE *data, DATATYPE *final_x, \
-            const sgx_key_128bit_t &key, uint32_t dim);
+            uint8_t ctr[16], \
+            const sgx_key_128bit_t *key, uint32_t dim);
 
 #endif

@@ -1,6 +1,8 @@
 #include "Enclave.h"
 #include "user_types.h"
 #include "sgx_tcrypto.h"
+#define SGXSSL_CTR_BITS	128
+#define SHIFT_BYTE	8
 sgx_aes_ctr_128bit_key_t KEY_Z = \
                     {0x0F, 0x0E, 0x0D, 0x0C, \
                      0x0B, 0x0A, 0x09, 0x08, \

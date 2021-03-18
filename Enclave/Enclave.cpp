@@ -145,12 +145,21 @@ uint32_t ecall_clear_final_x(DATATYPE *final_x, uint32_t dim) {
 
 uint32_t ecall_aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
             uint8_t *keys,
-            uint32_t clientNum, uint32_t dim) {
-    double t_enter, t_decryption = 0;
-    uint32_t ret = SGX_SUCCESS;
+            const uint32_t clientNum, const uint32_t dim) {
+    double t_enter, t_decryption = 0, t_keys = 0;
     ocall_gettime(&t_enter, "Enter enclave", 1);
+
+    uint32_t ret = SGX_SUCCESS;
     sgx_key_128bit_t *client_keys = new sgx_key_128bit_t[clientNum];
-    double t_keys = 0;
+
+    // 90MB available; Half for final_x, and half for user data 
+    const uint32_t loadedDim = dim<(90<<19) / sizeof(DATATYPE)? \
+                        dim:(90<<19) / sizeof(DATATYPE);
+    const uint32_t times = dim/loadedDim;    
+    uint8_t ctr_x[16] = {0};
+    uint8_t ctr_clients[clientNum][16] = {0};
+    DATATYPE *final_x_enclave = new DATATYPE[loadedDim];
+
     for(int i=0;i<clientNum;i++) {
         // Generate Session Key
         ret = generate_key(t_keys, client_keys[i]);
@@ -167,20 +176,20 @@ uint32_t ecall_aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
     ocall_encrypt(keys, dataMat, clientNum, dim);
     printf("Encprtion completed.\n\n");
 
-    // 90MB available; Half for final_x, and half for user data 
-    const uint32_t loadedDim = dim<(90<<19) / sizeof(DATATYPE)? \
-                        dim:(90<<19) / sizeof(DATATYPE);
-    const uint32_t times = dim/loadedDim;
-    
-    DATATYPE *final_x_enclave = new DATATYPE[loadedDim];
+
     for(int t=0;t<times;t++) {
         // Load final_x into enclave
-        
+        ret = sgx_aes_ctr_decrypt(&KEY_Z, (uint8_t*)(final_x+t*loadedDim), \
+                    loadedDim * sizeof(DATATYPE), ctr_x, 128, \
+                    (uint8_t*)final_x_enclave);
+        if (ret!=SGX_SUCCESS) {
+            printf("Decrypt final x into enclave faild.\n", i);
+            goto ret;
+        }
         for(int i=0;i<clientNum; i++) {
             // Decrypt and aggregate the data
-            uint8_t ctr[16] = {0};
-            ret = agg_individual(dataMat + i*dim, final_x, \
-                        ctr, client_keys[i], dim);
+            ret = agg_individual(dataMat + i*dim, final_x_enclave, \
+                        ctr_clients[i], client_keys+i, dim);
             if (ret!=SGX_SUCCESS) {
                 printf("Aggregate client %d failed...\n", i);
                 goto ret;

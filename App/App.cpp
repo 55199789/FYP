@@ -221,6 +221,16 @@ void generate_data(DATATYPE *arr, int clientNum, int dim) {
         for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
 }
 
+static void ctr128_inc(uint8_t *counter) {
+	unsigned int n = 16, c = 1;
+	do {
+		--n;
+		c += counter[n];
+		counter[n] = (uint8_t)c;
+		c >>= SHIFT_BYTE;
+	} while (n);
+}
+
 sgx_status_t aes_ctr_encrypt(const uint8_t *p_key, const uint8_t *p_src, \
                         const uint32_t src_len, uint8_t *p_ctr, \
                         const uint32_t ctr_inc_bits, uint8_t *p_dst) {
