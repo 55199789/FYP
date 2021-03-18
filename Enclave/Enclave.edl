@@ -41,12 +41,17 @@ enclave {
         public uint32_t ecall_clear_final_x([user_check] \
                             DATATYPE *final_x, uint32_t dim);
         public uint32_t ecall_aggregate([user_check] DATATYPE *dataMat,\
-                     [user_check] DATATYPE *final_x, uint32_t clientNum, uint32_t dim);
+                     [user_check] DATATYPE *final_x, \
+                     [user_check] uint8_t *keys,
+                      uint32_t clientNum, uint32_t dim);
     };
     
     untrusted {
         void ocall_print_string([in, string] const char *str);
         double ocall_gettime([in, string] const char *name, int is_end);
+        void ocall_encrypt([user_check] uint8_t *keys, \
+                            [user_check] DATATYPE *dataMat, \
+                            uint32_t clientNum, uint32_t dim);
     };
 
 };

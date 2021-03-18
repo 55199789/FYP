@@ -19,10 +19,11 @@ extern "C" {
 void ecall_loop(int tid);
 void ecall_threads_down(void);
 uint32_t ecall_clear_final_x(DATATYPE* final_x, uint32_t dim);
-uint32_t ecall_aggregate(DATATYPE* dataMat, DATATYPE* final_x, uint32_t clientNum, uint32_t dim);
+uint32_t ecall_aggregate(DATATYPE* dataMat, DATATYPE* final_x, uint8_t* keys, uint32_t clientNum, uint32_t dim);
 
 sgx_status_t SGX_CDECL ocall_print_string(const char* str);
 sgx_status_t SGX_CDECL ocall_gettime(double* retval, const char* name, int is_end);
+sgx_status_t SGX_CDECL ocall_encrypt(uint8_t* keys, DATATYPE* dataMat, uint32_t clientNum, uint32_t dim);
 
 #ifdef __cplusplus
 }

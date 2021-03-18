@@ -25,11 +25,15 @@ void SGX_UBRIDGE(SGX_NOCONVENTION, ocall_print_string, (const char* str));
 #define OCALL_GETTIME_DEFINED__
 double SGX_UBRIDGE(SGX_NOCONVENTION, ocall_gettime, (const char* name, int is_end));
 #endif
+#ifndef OCALL_ENCRYPT_DEFINED__
+#define OCALL_ENCRYPT_DEFINED__
+void SGX_UBRIDGE(SGX_NOCONVENTION, ocall_encrypt, (uint8_t* keys, DATATYPE* dataMat, uint32_t clientNum, uint32_t dim));
+#endif
 
 sgx_status_t ecall_loop(sgx_enclave_id_t eid, int tid);
 sgx_status_t ecall_threads_down(sgx_enclave_id_t eid);
 sgx_status_t ecall_clear_final_x(sgx_enclave_id_t eid, uint32_t* retval, DATATYPE* final_x, uint32_t dim);
-sgx_status_t ecall_aggregate(sgx_enclave_id_t eid, uint32_t* retval, DATATYPE* dataMat, DATATYPE* final_x, uint32_t clientNum, uint32_t dim);
+sgx_status_t ecall_aggregate(sgx_enclave_id_t eid, uint32_t* retval, DATATYPE* dataMat, DATATYPE* final_x, uint8_t* keys, uint32_t clientNum, uint32_t dim);
 
 #ifdef __cplusplus
 }

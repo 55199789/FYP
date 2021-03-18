@@ -41,6 +41,7 @@ typedef struct ms_ecall_aggregate_t {
 	uint32_t ms_retval;
 	DATATYPE* ms_dataMat;
 	DATATYPE* ms_final_x;
+	uint8_t* ms_keys;
 	uint32_t ms_clientNum;
 	uint32_t ms_dim;
 } ms_ecall_aggregate_t;
@@ -54,6 +55,13 @@ typedef struct ms_ocall_gettime_t {
 	const char* ms_name;
 	int ms_is_end;
 } ms_ocall_gettime_t;
+
+typedef struct ms_ocall_encrypt_t {
+	uint8_t* ms_keys;
+	DATATYPE* ms_dataMat;
+	uint32_t ms_clientNum;
+	uint32_t ms_dim;
+} ms_ocall_encrypt_t;
 
 static sgx_status_t SGX_CDECL sgx_ecall_loop(void* pms)
 {
@@ -111,10 +119,11 @@ static sgx_status_t SGX_CDECL sgx_ecall_aggregate(void* pms)
 	sgx_status_t status = SGX_SUCCESS;
 	DATATYPE* _tmp_dataMat = ms->ms_dataMat;
 	DATATYPE* _tmp_final_x = ms->ms_final_x;
+	uint8_t* _tmp_keys = ms->ms_keys;
 
 
 
-	ms->ms_retval = ecall_aggregate(_tmp_dataMat, _tmp_final_x, ms->ms_clientNum, ms->ms_dim);
+	ms->ms_retval = ecall_aggregate(_tmp_dataMat, _tmp_final_x, _tmp_keys, ms->ms_clientNum, ms->ms_dim);
 
 
 	return status;
@@ -135,10 +144,11 @@ SGX_EXTERNC const struct {
 
 SGX_EXTERNC const struct {
 	size_t nr_ocall;
-	uint8_t entry_table[2][4];
+	uint8_t entry_table[3][4];
 } g_dyn_entry_table = {
-	2,
+	3,
 	{
+		{0, 0, 0, 0, },
 		{0, 0, 0, 0, },
 		{0, 0, 0, 0, },
 	}
@@ -238,6 +248,36 @@ sgx_status_t SGX_CDECL ocall_gettime(double* retval, const char* name, int is_en
 
 	if (status == SGX_SUCCESS) {
 		if (retval) *retval = ms->ms_retval;
+	}
+	sgx_ocfree();
+	return status;
+}
+
+sgx_status_t SGX_CDECL ocall_encrypt(uint8_t* keys, DATATYPE* dataMat, uint32_t clientNum, uint32_t dim)
+{
+	sgx_status_t status = SGX_SUCCESS;
+
+	ms_ocall_encrypt_t* ms = NULL;
+	size_t ocalloc_size = sizeof(ms_ocall_encrypt_t);
+	void *__tmp = NULL;
+
+
+	__tmp = sgx_ocalloc(ocalloc_size);
+	if (__tmp == NULL) {
+		sgx_ocfree();
+		return SGX_ERROR_UNEXPECTED;
+	}
+	ms = (ms_ocall_encrypt_t*)__tmp;
+	__tmp = (void *)((size_t)__tmp + sizeof(ms_ocall_encrypt_t));
+	ocalloc_size -= sizeof(ms_ocall_encrypt_t);
+
+	ms->ms_keys = keys;
+	ms->ms_dataMat = dataMat;
+	ms->ms_clientNum = clientNum;
+	ms->ms_dim = dim;
+	status = sgx_ocall(2, ms);
+
+	if (status == SGX_SUCCESS) {
 	}
 	sgx_ocfree();
 	return status;

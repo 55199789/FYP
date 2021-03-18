@@ -15,6 +15,7 @@ typedef struct ms_ecall_aggregate_t {
 	uint32_t ms_retval;
 	DATATYPE* ms_dataMat;
 	DATATYPE* ms_final_x;
+	uint8_t* ms_keys;
 	uint32_t ms_clientNum;
 	uint32_t ms_dim;
 } ms_ecall_aggregate_t;
@@ -28,6 +29,13 @@ typedef struct ms_ocall_gettime_t {
 	const char* ms_name;
 	int ms_is_end;
 } ms_ocall_gettime_t;
+
+typedef struct ms_ocall_encrypt_t {
+	uint8_t* ms_keys;
+	DATATYPE* ms_dataMat;
+	uint32_t ms_clientNum;
+	uint32_t ms_dim;
+} ms_ocall_encrypt_t;
 
 static sgx_status_t SGX_CDECL Enclave_ocall_print_string(void* pms)
 {
@@ -45,14 +53,23 @@ static sgx_status_t SGX_CDECL Enclave_ocall_gettime(void* pms)
 	return SGX_SUCCESS;
 }
 
+static sgx_status_t SGX_CDECL Enclave_ocall_encrypt(void* pms)
+{
+	ms_ocall_encrypt_t* ms = SGX_CAST(ms_ocall_encrypt_t*, pms);
+	ocall_encrypt(ms->ms_keys, ms->ms_dataMat, ms->ms_clientNum, ms->ms_dim);
+
+	return SGX_SUCCESS;
+}
+
 static const struct {
 	size_t nr_ocall;
-	void * table[2];
+	void * table[3];
 } ocall_table_Enclave = {
-	2,
+	3,
 	{
 		(void*)Enclave_ocall_print_string,
 		(void*)Enclave_ocall_gettime,
+		(void*)Enclave_ocall_encrypt,
 	}
 };
 sgx_status_t ecall_loop(sgx_enclave_id_t eid, int tid)
@@ -82,12 +99,13 @@ sgx_status_t ecall_clear_final_x(sgx_enclave_id_t eid, uint32_t* retval, DATATYP
 	return status;
 }
 
-sgx_status_t ecall_aggregate(sgx_enclave_id_t eid, uint32_t* retval, DATATYPE* dataMat, DATATYPE* final_x, uint32_t clientNum, uint32_t dim)
+sgx_status_t ecall_aggregate(sgx_enclave_id_t eid, uint32_t* retval, DATATYPE* dataMat, DATATYPE* final_x, uint8_t* keys, uint32_t clientNum, uint32_t dim)
 {
 	sgx_status_t status;
 	ms_ecall_aggregate_t ms;
 	ms.ms_dataMat = dataMat;
 	ms.ms_final_x = final_x;
+	ms.ms_keys = keys;
 	ms.ms_clientNum = clientNum;
 	ms.ms_dim = dim;
 	status = sgx_ecall(eid, 3, &ocall_table_Enclave, &ms);

@@ -14,6 +14,12 @@
 #include "Enclave_u.h"
 
 #include <thread>
+#include "openssl/aes.h"
+#include "openssl/evp.h"
+#include "openssl/err.h"
+
+#define SGXSSL_CTR_BITS	128
+#define SHIFT_BYTE	8
 
 #include "user_types.h"
 #include "threads_conf.h"
@@ -215,25 +221,94 @@ void generate_data(DATATYPE *arr, int clientNum, int dim) {
         for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
 }
 
+void ctr128_inc(uint8_t *counter) {
+	unsigned int n = 16, c = 1;
+
+	do {
+		--n;
+		c += counter[n];
+		counter[n] = (uint8_t)c;
+		c >>= SHIFT_BYTE;
+	} while (n);
+}
+
+sgx_status_t aes_ctr_encrypt(const uint8_t *p_key, const uint8_t *p_src, \
+                        const uint32_t src_len, uint8_t *p_ctr, \
+                        const uint32_t ctr_inc_bits, uint8_t *p_dst) {
+    if ((src_len > INT_MAX) || (p_key == NULL) || \
+            (p_src == NULL) || (p_ctr == NULL) || (p_dst == NULL))
+		return SGX_ERROR_INVALID_PARAMETER;
+    sgx_status_t ret = SGX_ERROR_UNEXPECTED;
+	int len = 0;
+	EVP_CIPHER_CTX* ptr_ctx = NULL;
+    if (ctr_inc_bits != SGXSSL_CTR_BITS)
+		return SGX_ERROR_INVALID_PARAMETER;
+    do {
+		if (!(ptr_ctx = EVP_CIPHER_CTX_new())) {
+			ret = SGX_ERROR_OUT_OF_MEMORY;
+			break;
+		}
+		if (1 != EVP_EncryptInit_ex(ptr_ctx, EVP_aes_128_ctr(), NULL, (unsigned char*)p_key, p_ctr)) {
+			break;
+		}
+		if (1 != EVP_EncryptUpdate(ptr_ctx, p_dst, &len, p_src, src_len)) {
+			break;
+		}
+		if (1 != EVP_EncryptFinal_ex(ptr_ctx, p_dst + len, &len)) {
+			break;
+		}
+		len = src_len;
+		while (len >= 0) {
+			ctr128_inc(p_ctr);
+			len -= 16;
+		}
+		ret = SGX_SUCCESS;
+	} while (0);
+
+	if (ptr_ctx) {
+		EVP_CIPHER_CTX_free(ptr_ctx);
+	}
+	return ret;
+}
+
+void aggregate_test(DATATYPE *dataMat, uint32_t clientNum, \
+                uint32_t dim, DATATYPE *test_x) {
+    memset(test_x, 0, sizeof(DATATYPE)*dim);
+    for(int i=0;i<clientNum;i++) {
+        DATATYPE *vec = dataMat + i * dim;
+        for(int j=0;j<dim;j++) test_x[j] += vec[j];
+    }
+    for(int i=0;i<dim;i++)test_x[i]/=clientNum;
+}
+
+void ocall_encrypt(uint8_t *keys, DATATYPE *dataMat, \
+        uint32_t clientNum, uint32_t dim) {
+    // Encrypt dataMat
+    DATATYPE *tmp = new DATATYPE[dim];
+    for(int i=0;i<clientNum;i++) {
+        uint8_t ctr[16] = {0};
+        memcpy(tmp, dataMat+i*dim, sizeof(DATATYPE)*dim);
+        if(aes_ctr_encrypt(keys+16*i, \
+                (uint8_t*)tmp, sizeof(DATATYPE)*dim, ctr, 128, \
+                (uint8_t *)(dataMat + i*dim)) != SGX_SUCCESS)
+            printf("\033[33m Encrypt dataMat: sgx_aes_ctr_encrypt failed \033[0m\n");
+    }
+    delete[] tmp;
+}
+
 int aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
+                uint8_t *keys, \
                 int clientNum, int dim) {
     uint32_t ret = SGX_ERROR_UNEXPECTED;
     ocall_gettime();
-// Testing code
-for(int i=0;i<10;i++) printf("%f ", final_x[i]);
-printf("\n");
-// Testing end
     ecall_clear_final_x(global_eid, &ret, final_x, dim);
     if (ret != SGX_SUCCESS) {
         print_error_message(ret);
         return -1;
     }
     printf("Clear final x successfully.\n");
-// Testing code
-for(int i=0;i<10;i++)printf("%f ", final_x[i]);
-printf("\n");
-// Testing end
-    ecall_aggregate(global_eid, &ret, dataMat, final_x, clientNum, dim);
+    ecall_aggregate(global_eid, &ret, dataMat, final_x,\
+            keys, clientNum, dim);
     if (ret != SGX_SUCCESS) {
         print_error_message(ret);
         return -1;
@@ -256,6 +331,8 @@ int SGX_CDECL main(int argc, char *argv[])
     srand(time(0));
     DATATYPE *dataMat = new DATATYPE[clientNum * dim];
     DATATYPE *final_x = new DATATYPE[dim];
+    DATATYPE *test_x = new DATATYPE[dim];
+    uint8_t *clientKeys = new uint8_t[clientNum*16];
     /* Initialize the enclave */
     printf("init enclave...\n");
     ocall_gettime();
@@ -268,21 +345,27 @@ int SGX_CDECL main(int argc, char *argv[])
 
     // Randomly generate data
     generate_data(dataMat, clientNum, dim);
-    printf("\n%s[Info] Sizeof data matrix: %ldMB\n", KYEL, \
-                 (sizeof(DATATYPE)*clientNum*dim)>>20);
+    aggregate_test(dataMat, clientNum, dim, test_x);
+    printf("\n%s[Info] Sizeof data matrix: %ldMB\n%s", KYEL, \
+                 (sizeof(DATATYPE)*clientNum*dim)>>20, KNRM);
 
-    if(aggregate(dataMat, final_x, clientNum, dim) < 0) {
+    if(aggregate(dataMat, final_x, clientKeys, clientNum, dim) < 0) {
         printf("Failed to aggregate.\n");
         goto destroy_enclave;
     }
+    printf("Secure aggregation completed!\n");
 
 
     /* Destroy the enclave */
     ocall_gettime();
 destroy_enclave:
-    sgx_destroy_enclave(global_eid);
+    double t_destroy = sgx_destroy_enclave(global_eid);
     ocall_gettime("Destroy enclave", 1);    
-    printf("Info: SampleEnclave successfully returned.\n");
+    delete[] dataMat;
+    delete[] clientKeys; 
+    delete[] final_x;
+    delete[] test_x;
+    printf("[Info] Destroy enclave: %fms.\n", t_destroy);
     return 0;
 }
 

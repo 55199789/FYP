@@ -116,7 +116,7 @@ else
 endif
 
 App_Cpp_Flags := -std=c++11 $(App_C_Flags) -mavx2 -mfma
-App_Link_Flags := -L$(SGX_LIBRARY_PATH) -l$(Urts_Library_Name) -lpthread 
+App_Link_Flags := -L$(SGX_LIBRARY_PATH) -l$(Urts_Library_Name) -lpthread -lssl -lcrypto
 
 ifneq ($(SGX_MODE), HW)
 	App_Link_Flags += -lsgx_uae_service_sim
