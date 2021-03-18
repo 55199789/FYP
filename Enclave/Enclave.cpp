@@ -146,17 +146,18 @@ uint32_t ecall_clear_final_x(DATATYPE *final_x, uint32_t dim) {
 uint32_t ecall_aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
             uint8_t *keys,
             const uint32_t clientNum, const uint32_t dim) {
-    double t_enter, t_decryption = 0, t_keys = 0;
+    double t_enter, t_decryption = 0, t_keys = 0, t_aggregation;
     ocall_gettime(&t_enter, "Enter enclave", 1);
-
+    printf("%sTime of entering the enclave: %fms%s\n", KRED, t_enter*1000, KNRM);
     uint32_t ret = SGX_SUCCESS;
     sgx_key_128bit_t *client_keys = new sgx_key_128bit_t[clientNum];
 
     // 90MB available; Half for final_x, and half for user data 
     const uint32_t loadedDim = dim<(90<<19) / sizeof(DATATYPE)? \
                         dim:(90<<19) / sizeof(DATATYPE);
-    const uint32_t times = dim/loadedDim;    
-    uint8_t ctr_x[16] = {0};
+    const uint32_t times = dim/loadedDim;
+    uint8_t ctr_x_en[16] = {0};
+    uint8_t ctr_x_de[16] = {0};
     uint8_t ctr_clients[clientNum][16] = {0};
     DATATYPE *final_x_enclave = new DATATYPE[loadedDim];
 
@@ -176,28 +177,87 @@ uint32_t ecall_aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
     ocall_encrypt(keys, dataMat, clientNum, dim);
     printf("Encprtion completed.\n\n");
 
+printf("[DEBUG] Times: %d, loaded dim: %d\n", times, loadedDim);
 
+    ocall_gettime(&t_aggregation, "Aggregation", 0);
     for(int t=0;t<times;t++) {
         // Load final_x into enclave
-        ret = sgx_aes_ctr_decrypt(&KEY_Z, (uint8_t*)(final_x+t*loadedDim), \
-                    loadedDim * sizeof(DATATYPE), ctr_x, 128, \
+        // printf("Loading %d to %d data.\n", t*loadedDim, (t+1)*loadedDim);
+        ret = sgx_aes_ctr_decrypt(&KEY_Z, (uint8_t*)(final_x + t*loadedDim), \
+                    loadedDim * sizeof(DATATYPE), ctr_x_en, 128, \
                     (uint8_t*)final_x_enclave);
         if (ret!=SGX_SUCCESS) {
-            printf("Decrypt final x into enclave faild.\n", i);
+            printf("Decrypt final x into enclave faild.\n");
             goto ret;
         }
         for(int i=0;i<clientNum; i++) {
             // Decrypt and aggregate the data
-            ret = agg_individual(dataMat + i*dim, final_x_enclave, \
-                        ctr_clients[i], client_keys+i, dim);
+            ret = agg_individual(dataMat + i*dim + t*loadedDim, \
+                        final_x_enclave, \
+                        ctr_clients[i], client_keys+i, loadedDim);
             if (ret!=SGX_SUCCESS) {
                 printf("Aggregate client %d failed...\n", i);
                 goto ret;
             }
         }
+        // Normalization
+        for(int i=0;i<loadedDim; i++) final_x_enclave[i] /= clientNum;
+        // Move final_x from enclave to RAM 
+        ret = sgx_aes_ctr_encrypt(&KEY_Z, (uint8_t*)final_x_enclave, \
+                    loadedDim * sizeof(DATATYPE), ctr_x_de, 128, \
+                    (uint8_t*)final_x + t*loadedDim);
+        if (ret!=SGX_SUCCESS) {
+            printf("Encrypt final x into RAM faild.\n");
+            goto ret;
+        }
+    }
+    // Process the remaining part
+    if(dim%loadedDim) { 
+        printf("Processing remaining part...\n");
+        const uint32_t remaining = dim % loadedDim;
+        // Load final_x into enclave
+        ret = sgx_aes_ctr_decrypt(&KEY_Z, (uint8_t*)(final_x+times*loadedDim), \
+                        remaining * sizeof(DATATYPE), ctr_x_en, 128, \
+                        (uint8_t*)final_x_enclave);
+        if (ret!=SGX_SUCCESS) {
+            printf("Decrypt final x into enclave faild.\n");
+            goto ret;
+        }
+        for(int i=0;i<clientNum; i++) {
+            // Decrypt and aggregate the data
+            ret = agg_individual(dataMat + i*dim + times*loadedDim, final_x_enclave, \
+                        ctr_clients[i], client_keys+i, remaining);
+            if (ret!=SGX_SUCCESS) {
+                printf("Aggregate client %d failed...\n", i);
+                goto ret;
+            }
+        }
+        // Normalization
+        for(int i=0;i<loadedDim; i++) final_x_enclave[i] /= clientNum;
+        // Move final_x from enclave to RAM 
+        ret = sgx_aes_ctr_encrypt(&KEY_Z, (uint8_t*)final_x_enclave, \
+                    remaining * sizeof(DATATYPE), ctr_x_de, 128, \
+                    (uint8_t*)final_x + times*loadedDim);
+        if (ret!=SGX_SUCCESS) {
+            printf("Encrypt final x into RAM faild.\n");
+            goto ret;
+        }
+    }
+    ocall_gettime(&t_aggregation, "Aggregation", 1);
+    printf("%sTime of secure aggregation: %fms%s\n\n", KRED, \
+            t_aggregation*1000, KNRM);
+    {
+    uint8_t ctr_x[16] = {0};
+    DATATYPE *x_ = new DATATYPE[dim];
+    memcpy(x_, final_x, sizeof(DATATYPE)*dim);
+    ret = sgx_aes_ctr_decrypt(&KEY_Z, (uint8_t*)x_, \
+                dim*sizeof(DATATYPE), ctr_x, 128, \
+                (uint8_t*)final_x);
+    delete[] x_;
     }
     printf("%s[INFO] Aggregate successfully.\n%s", KYEL, KNRM);
 ret:
     delete[] client_keys;
+    delete[] final_x_enclave;
     return ret;
 }

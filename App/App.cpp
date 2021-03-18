@@ -24,9 +24,6 @@
 #include "user_types.h"
 #include "threads_conf.h"
 
-// add by ice
-const size_t MAXS = 1024 * 1024 *1024;
-
 /* Global EID shared by multiple threads */
 sgx_enclave_id_t global_eid = 0;
 
@@ -168,8 +165,7 @@ void ocall_print_string(const char *str)
 }
 
 
-double ocall_gettime(const char *name="\0", int is_end=false)
-{
+double ocall_gettime(const char *name="\0", int is_end=false) {
     static std::chrono::time_point<std::chrono::high_resolution_clock> \
                             begin_time, end_time;
     static bool begin_done = false;
@@ -221,6 +217,17 @@ void generate_data(DATATYPE *arr, int clientNum, int dim) {
         for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
 }
 
+void aggregate_test(DATATYPE *dataMat, uint32_t clientNum, \
+                uint32_t dim, DATATYPE *test_x) {
+    memset(test_x, 0, sizeof(DATATYPE)*dim);
+    for(int i=0;i<clientNum;i++) {
+        DATATYPE *vec = dataMat + i * dim;
+        for(int j=0;j<dim;j++) test_x[j] += vec[j];
+    }
+    for(int i=0;i<dim;i++)test_x[i]/=clientNum;
+}
+
+
 static void ctr128_inc(uint8_t *counter) {
 	unsigned int n = 16, c = 1;
 	do {
@@ -231,7 +238,8 @@ static void ctr128_inc(uint8_t *counter) {
 	} while (n);
 }
 
-sgx_status_t aes_ctr_encrypt(const uint8_t *p_key, const uint8_t *p_src, \
+sgx_status_t aes_ctr_encrypt(const uint8_t *p_key, \
+                        const uint8_t *p_src, \
                         const uint32_t src_len, uint8_t *p_ctr, \
                         const uint32_t ctr_inc_bits, uint8_t *p_dst) {
     if ((src_len > INT_MAX) || (p_key == NULL) || \
@@ -270,16 +278,6 @@ sgx_status_t aes_ctr_encrypt(const uint8_t *p_key, const uint8_t *p_src, \
 	return ret;
 }
 
-void aggregate_test(DATATYPE *dataMat, uint32_t clientNum, \
-                uint32_t dim, DATATYPE *test_x) {
-    memset(test_x, 0, sizeof(DATATYPE)*dim);
-    for(int i=0;i<clientNum;i++) {
-        DATATYPE *vec = dataMat + i * dim;
-        for(int j=0;j<dim;j++) test_x[j] += vec[j];
-    }
-    for(int i=0;i<dim;i++)test_x[i]/=clientNum;
-}
-
 void ocall_encrypt(uint8_t *keys, DATATYPE *dataMat, \
         uint32_t clientNum, uint32_t dim) {
     // Encrypt dataMat
@@ -315,6 +313,20 @@ int aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
     return 0;
 }
 
+void test_aggregate_results(DATATYPE *test_x, \
+                DATATYPE *final_x, uint32_t dim) {
+    for(int i=0;i<dim;i++)
+        if(abs(final_x[i] - test_x[i])>1e-6) {
+            printf("pos: %d, std x: %f, final x: %f failed!\n", i, \
+                test_x[i], final_x[i]);
+            return;
+        }
+    printf("Testing passed!\n");
+    for(int i=0;i<10;i++) 
+        printf("%.5f ", test_x[i]);
+    printf("\n");
+}
+
 /* Application entry */
 int SGX_CDECL main(int argc, char *argv[])
 {
@@ -340,11 +352,16 @@ int SGX_CDECL main(int argc, char *argv[])
         goto destroy_enclave;
     }
     t_enclave_creatation = ocall_gettime("Create enclave", 1);
-    printf("%s[INFO] Create Enclave: %fms\n",KYEL, t_enclave_creatation*1000);
+    printf("%s[INFO] Create Enclave: %fms%s\n",KYEL, \
+            t_enclave_creatation*1000, KNRM);
 
     // Randomly generate data
     generate_data(dataMat, clientNum, dim);
+
+    ocall_gettime();
     aggregate_test(dataMat, clientNum, dim, test_x);
+    printf("Test aggregate time: %fms\n", ocall_gettime("Aggregate", 1));
+
     printf("\n%s[Info] Sizeof data matrix: %ldMB\n%s", KYEL, \
                  (sizeof(DATATYPE)*clientNum*dim)>>20, KNRM);
 
@@ -354,6 +371,8 @@ int SGX_CDECL main(int argc, char *argv[])
     }
     printf("Secure aggregation completed!\n");
 
+    // Test whether the results are equal
+    test_aggregate_results(test_x, final_x, dim);
 
     /* Destroy the enclave */
     ocall_gettime();
