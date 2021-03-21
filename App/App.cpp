@@ -3,9 +3,9 @@
 #include <assert.h>
 #include <time.h> 
 #include <stdlib.h>
-# include <unistd.h>
-# include <pwd.h>
-# define MAX_PATH FILENAME_MAX
+#include <unistd.h>
+#include <pwd.h>
+#define MAX_PATH FILENAME_MAX
 
 #include "sgx_trts.h"
 #include "sgx_urts.h"
@@ -214,7 +214,8 @@ void threads_finish() {
 
 void generate_data(DATATYPE *arr, int clientNum, int dim) {
     for(int i=0;i<clientNum;i++)
-        for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
+        // for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
+        for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand();
 }
 
 void aggregate_test(DATATYPE *dataMat, uint32_t clientNum, \
@@ -355,6 +356,9 @@ int SGX_CDECL main(int argc, char *argv[])
     printf("%s[INFO] Create Enclave: %fms%s\n",KYEL, \
             t_enclave_creatation*1000, KNRM);
 
+    // printf("\033[34m threads_init \033[0m\n");
+    // threads_init();
+
     // Randomly generate data
     generate_data(dataMat, clientNum, dim);
 
@@ -384,14 +388,9 @@ destroy_enclave:
     delete[] final_x;
     delete[] test_x;
     printf("[Info] Destroy enclave: %fms.\n", t_destroy);
-    return 0;
-}
-
-    // printf("\033[34m eigen init inside enclave \033[0m\n");
-
-    // printf("\033[34m threads_init \033[0m\n");
-    // threads_init();
-
-
+    
     // printf("\033[34m threads_finish \033[0m\n");
     // threads_finish();
+
+    return 0;
+}

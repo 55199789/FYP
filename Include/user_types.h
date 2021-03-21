@@ -7,6 +7,6 @@
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
 #define TIMEPRINT false
-#define DATATYPE double
+#define DATATYPE int64_t
 #define SGXSSL_CTR_BITS	128
 #define SHIFT_BYTE	8

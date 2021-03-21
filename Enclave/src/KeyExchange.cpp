@@ -8,9 +8,9 @@
 uint32_t generate_key(double &totTime,sgx_key_128bit_t &dh_aek) {
     double t_session_creation, t_msg1, t_msg2, t_msg3;
     ocall_gettime(&t_session_creation, "\0", 0);
-    sgx_dh_msg1_t dh_msg1;            //Diffie-Hellman Message 1
-    sgx_dh_msg2_t dh_msg2;            //Diffie-Hellman Message 2
-    sgx_dh_msg3_t dh_msg3;            //Diffie-Hellman Message 3
+    sgx_dh_msg1_t dh_msg1;
+    sgx_dh_msg2_t dh_msg2;
+    sgx_dh_msg3_t dh_msg3;
     sgx_dh_session_t sgx_dh_session_client, sgx_dh_session_server;
     sgx_status_t status = SGX_SUCCESS;
     sgx_dh_session_enclave_identity_t initiator_identity, \
@@ -67,13 +67,6 @@ uint32_t generate_key(double &totTime,sgx_key_128bit_t &dh_aek) {
         return status;
     }
     ocall_gettime(&t_msg3, "[ECALL] Server generates message 3", 1);
-if(TIMEPRINT) {
-    printf("Shared Key: \n");
-    for(int i=0;i<16;i++) {
-    printf("%02X", dh_aek[i]);
-    }
-    printf("\n\n");
-}
     // Client generates aek - not necessarily
     // status = sgx_dh_initiator_proc_msg3(&dh_msg3, 
     //                 &sgx_dh_session_client, 
