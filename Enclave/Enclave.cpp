@@ -122,7 +122,7 @@ printf("[DEBUG] loaded num: %d, times: %d\n", LDN, TMS);
 uint32_t ecall_aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
             uint8_t *keys,
             const uint32_t clientNum, const uint32_t dim) {
-    double t_enter, t_keys = 0, t_aggregation;
+    double t_enter, t_keys = 0, t_aggregation, t_keysC = 0;
     ocall_gettime(&t_enter, "Enter enclave", 1);
     printf("%sTime of entering the enclave: %fms%s\n", KRED, t_enter*1000, KNRM);
     // 90MB available; Half for final_x, and half for user data 
@@ -144,7 +144,8 @@ printf("[DEBUG] Sizeof all required data in enclave: %d KB\n", \
 
     for(int i=0;i<clientNum;i++) {
         // Generate Session Key
-        ret = generate_key(t_keys, client_keys[i]);
+        ret = generate_key(t_keys, t_keysC, \
+                        client_keys[i]);
         if (ret!=SGX_SUCCESS) {
             printf("Generate session key failed...\n");
             goto ret;
@@ -153,6 +154,8 @@ printf("[DEBUG] Sizeof all required data in enclave: %d KB\n", \
     }
     printf("%sTime of key exchanges for %d clients: %fms\n%s\n", KRED, \
         clientNum, t_keys*1000, KNRM);
+    printf("%sTime of key exchanges per client: %fms\n%s\n", KRED, \
+                t_keysC*1000/clientNum, KNRM);
 
     printf("Encrpyting user data...\n");
     ocall_encrypt(keys, dataMat, clientNum, dim);
@@ -197,7 +200,6 @@ printf("[DEBUG] Times: %d, loaded dim: %d\n", times, loadedDim);
     }
     // Process the remaining part
     if(dim%loadedDim) { 
-        printf("Processing remaining part...\n");
         const uint32_t remaining = dim % loadedDim;
         // Load final_x into enclave
         ret = sgx_aes_ctr_decrypt(&KEY_Z, (uint8_t*)(final_x+times*loadedDim), \

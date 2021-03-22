@@ -280,17 +280,25 @@ sgx_status_t aes_ctr_encrypt(const uint8_t *p_key, \
 }
 
 void ocall_encrypt(uint8_t *keys, DATATYPE *dataMat, \
-        uint32_t clientNum, uint32_t dim) {
+        const uint32_t clientNum, const uint32_t dim) {
     // Encrypt dataMat
     DATATYPE *tmp = new DATATYPE[dim];
+    double t_en[clientNum];
     for(int i=0;i<clientNum;i++) {
+        ocall_gettime();
         uint8_t ctr[16] = {0};
         memcpy(tmp, dataMat+i*dim, sizeof(DATATYPE)*dim);
         if(aes_ctr_encrypt(keys+16*i, \
                 (uint8_t*)tmp, sizeof(DATATYPE)*dim, ctr, 128, \
                 (uint8_t *)(dataMat + i*dim)) != SGX_SUCCESS)
             printf("\033[33m Encrypt dataMat: sgx_aes_ctr_encrypt failed \033[0m\n");
+        t_en[i] = ocall_gettime("\0", 1);
     }
+    double t_en_avg = 0;
+    for(auto i:t_en) t_en_avg += i;
+    t_en_avg /= clientNum;
+    printf("%sTime of data encryption per client: %fms%s\n", \
+        KRED, t_en_avg*1000, KNRM);
     delete[] tmp;
 }
 
@@ -323,9 +331,6 @@ void test_aggregate_results(DATATYPE *test_x, \
             return;
         }
     printf("Testing passed!\n");
-    for(int i=0;i<10;i++) 
-        printf("%.5f ", test_x[i]);
-    printf("\n");
 }
 
 /* Application entry */

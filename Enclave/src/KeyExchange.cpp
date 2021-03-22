@@ -5,8 +5,9 @@
 #include "sgx_dh.h"
 #include "KeyExchange.h"
 
-uint32_t generate_key(double &totTime,sgx_key_128bit_t &dh_aek) {
-    double t_session_creation, t_msg1, t_msg2, t_msg3;
+uint32_t generate_key(double &totTime, double &totTimeC, \
+                    sgx_key_128bit_t &dh_aek) {
+    double t_session_creation, t_msg1, t_msg2, t_msg3, t_msg4;
     ocall_gettime(&t_session_creation, "\0", 0);
     sgx_dh_msg1_t dh_msg1;
     sgx_dh_msg2_t dh_msg2;
@@ -68,15 +69,17 @@ uint32_t generate_key(double &totTime,sgx_key_128bit_t &dh_aek) {
     }
     ocall_gettime(&t_msg3, "[ECALL] Server generates message 3", 1);
     // Client generates aek - not necessarily
-    // status = sgx_dh_initiator_proc_msg3(&dh_msg3, 
-    //                 &sgx_dh_session_client, 
-    //                 &dh_aek, 
-    //                 &responder_identity);
-    // if (status != SGX_SUCCESS) {
-    //     printf("Client processes msg3 failed.\n");
-    //     return status;
-    // }
-    // printf("[ECALL] Client processes message 3 successfully.\n");
+    ocall_gettime(&t_msg4, "\0", 0);
+    status = sgx_dh_initiator_proc_msg3(&dh_msg3, 
+                    &sgx_dh_session_client, 
+                    &dh_aek, 
+                    &responder_identity);
+    if (status != SGX_SUCCESS) {
+        printf("Client processes msg3 failed.\n");
+        return status;
+    }
+    ocall_gettime(&t_msg4, "\0", 1);
     totTime += t_session_creation + t_msg1 + t_msg3;
+    totTimeC += t_session_creation + t_msg2 + t_msg4;
     return SGX_SUCCESS;
 }
