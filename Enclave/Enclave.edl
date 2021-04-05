@@ -35,9 +35,6 @@ enclave {
     
     include "user_types.h" /* buffer_t */
     trusted {
-        //multi-threading
-        public void ecall_loop(int tid);
-        public void ecall_threads_down();
         public uint32_t ecall_clear_final_x([user_check] \
                             DATATYPE *final_x, uint32_t dim);
         public uint32_t ecall_aggregate([user_check] DATATYPE *dataMat,\

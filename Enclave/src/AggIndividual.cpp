@@ -5,10 +5,6 @@
 #include "sgx_tcrypto.h"
 #include "user_types.h"
 #include "AggIndividual.h"
-#include "threads_conf.h"
-
-std::atomic<bool> sync_flag_[THREAD_NUM];
-std::function<void()> fun_ptrs[THREAD_NUM];
 
 // data: in RAM,
 // final_x: in Enclave
@@ -26,11 +22,7 @@ uint32_t agg_individual(DATATYPE *data, DATATYPE *final_x, \
                 sgx_aes_ctr_decrypt failed \033[0m\n");
             return ret;
     }
-    // for(int t=0;t<THREAD_NUM;t++) {
-    //     const int st = dim / THREAD_NUM * t;
-    //     const int ed = t==THREAD_NUM-1?dim:dim/THREAD_NUM * (t+1);
-    //     for(int i=st;i<ed;i++)
-    // }
+    // Aggregate
     for(int i=0;i<dim;i++)
         final_x[i] += data_enclave[i];
     return SGX_SUCCESS;

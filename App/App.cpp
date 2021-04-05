@@ -6,14 +6,13 @@
 #include <unistd.h>
 #include <pwd.h>
 #define MAX_PATH FILENAME_MAX
-
+#include <chrono>
 #include "sgx_trts.h"
 #include "sgx_urts.h"
 
 #include "App.h"
 #include "Enclave_u.h"
 
-#include <thread>
 #include "openssl/aes.h"
 #include "openssl/evp.h"
 #include "openssl/err.h"
@@ -22,9 +21,8 @@
 #define SHIFT_BYTE	8
 
 #include "user_types.h"
-#include "threads_conf.h"
 
-/* Global EID shared by multiple threads */
+/* Global EID */
 sgx_enclave_id_t global_eid = 0;
 
 typedef struct _sgx_errlist_t {
@@ -186,30 +184,6 @@ double ocall_gettime(const char *name="\0", int is_end=false) {
     }
 
     return 0;
-}
-
-void loop(int tid) {
-    printf("\033[34m [loop][thread][%d][begin] \033[0m\n", tid);
-    ecall_loop(global_eid, tid);
-}
-static std::atomic<bool> input_load_flag[THREAD_NUM];
-static std::function<void()> load_func_ptrs[THREAD_NUM];
-
-std::thread threads[THREAD_NUM];
-void threads_init() {
-    for (int i = 1; i < THREAD_NUM; i++) {
-        load_func_ptrs[i] = NULL;
-        input_load_flag[i] = false;
-        threads[i] = std::thread(loop, i);
-      //  threads[i].detach();
-    }
-}
-
-void threads_finish() {
-  ecall_threads_down(global_eid);
-
-    for (int i = 1; i < THREAD_NUM; i++)
-        threads[i].join();
 }
 
 void generate_data(DATATYPE *arr, int clientNum, int dim) {
