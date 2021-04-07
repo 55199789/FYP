@@ -188,8 +188,10 @@ double ocall_gettime(const char *name="\0", int is_end=false) {
 
 void generate_data(DATATYPE *arr, int clientNum, int dim) {
     for(int i=0;i<clientNum;i++)
-        // for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
-        for(int j=0;j<dim;j++) arr[i*dim+j] = (DATATYPE)rand();
+        for(int j=0;j<dim;j++) 
+            arr[i*dim+j] = (DATATYPE)rand()/RAND_MAX;
+        // for(int j=0;j<dim;j++) 
+        //     arr[i*dim+j] = (DATATYPE)rand();
 }
 
 void aggregate_test(DATATYPE *dataMat, uint32_t clientNum, \
@@ -254,13 +256,13 @@ sgx_status_t aes_ctr_encrypt(const uint8_t *p_key, \
 }
 
 void ocall_compress(DATATYPE *dataMat, \
+        Vector *compressedData, \
         const uint32_t clientNum, const uint32_t dim, \
         const uint32_t k) {
     // Compress dataMat
     if (k<=0 || k>=dim) 
         return;
     DATATYPE *tmp = new DATATYPE[dim];
-    Element *ele = new Element[k];
     double t_comp[clientNum];
     for(int i=0;i<clientNum;i++) { 
         ocall_gettime();
@@ -271,34 +273,32 @@ void ocall_compress(DATATYPE *dataMat, \
                 [](const DATATYPE &a, const DATATYPE &b)->bool {
                     return abs(a)>abs(b);
                 });
+        *kth = abs(*kth);
         DATATYPE beta = 0;
         int cnt = 0;
+        if(compressedData[i].elements==NULL) 
+            compressedData[i].elements=new Element[k];
         for(int j=0;j<dim;j++) {
-            if(dataMat[st+j]>=*kth) {
-                ele[cnt++] = {
+            if(abs(dataMat[st+j])>=*kth) {
+                compressedData[i].elements[cnt++] = {
                     j, dataMat[st+j]>0
                 };
             }
             beta += dataMat[st+j]*dataMat[st+j];
         }
-        beta = sqrt(beta)/sqrt(k);
-        // Re-use dataMat for convenience
-        memcpy(dataMat+st, ele, sizeof(Element)*k);
-        memcpy(dataMat+st+sizeof(Element)*k, &beta, \
-                sizeof(beta));
+        compressedData[i].beta = sqrt(1.0*beta)/sqrt(1.0*k);
         t_comp[i] = ocall_gettime("\0", 1);
     }
-
     double t_en_avg = 0;
     for(auto i:t_comp) t_en_avg += i;
     t_en_avg /= clientNum;
     printf("%sTime of data compression per client: %fms%s\n", \
         KRED, t_en_avg*1000, KNRM);
     delete[] tmp;
-    delete[] ele;
 }
 
 void ocall_encrypt(uint8_t *keys, DATATYPE *dataMat, \
+        Vector *compressedData, \
         const uint32_t clientNum, const uint32_t dim, \
         const uint32_t k) {
     // Encrypt dataMat
@@ -311,19 +311,35 @@ void ocall_encrypt(uint8_t *keys, DATATYPE *dataMat, \
     for(int i=0;i<clientNum;i++) {
         ocall_gettime();
         uint8_t ctr[16] = {0};
-        if (k<dim && k>0) 
-            memcpy(tmp, dataMat+i*dim, sizeof(Element)*k);
-        else 
+        if (k<dim && k>0) {
+            memcpy(tmp, compressedData[i].elements, \
+                    sizeof(Element)*k);
+            if(aes_ctr_encrypt(keys+16*i, tmp, \
+                    sizeof(Element)*k, \
+                    ctr, 128, \
+                    (uint8_t *)(compressedData[i].elements)) \
+                    != SGX_SUCCESS)
+                printf("\033[33m Encrypt compressedData elements: \
+                        sgx_aes_ctr_encrypt failed \033[0m\n");
+            memcpy(tmp, &compressedData[i].beta, \
+                    sizeof(DATATYPE));
+            if(aes_ctr_encrypt(keys+16*i, tmp, \
+                    sizeof(DATATYPE), \
+                    ctr, 128, \
+                    (uint8_t *)(&(compressedData[i].beta))) \
+                    != SGX_SUCCESS)
+                printf("\033[33m Encrypt compressedData beta: \
+                        sgx_aes_ctr_encrypt failed \033[0m\n");
+        }
+        else {
             memcpy(tmp, dataMat+i*dim, sizeof(DATATYPE)*dim);
-        // As we re-use the same memory, 
-        // we do not need to encrypt the whole space (if compressed)
-        if(aes_ctr_encrypt(keys+16*i, \
-                (uint8_t*)tmp, \
-                k<dim&&k>0?sizeof(Element)*k: \
-                            sizeof(DATATYPE)*dim, \
-                ctr, 128, \
-                (uint8_t *)(dataMat + i*dim)) != SGX_SUCCESS)
-            printf("\033[33m Encrypt dataMat: sgx_aes_ctr_encrypt failed \033[0m\n");
+            if(aes_ctr_encrypt(keys+16*i, tmp, \
+                    sizeof(DATATYPE)*dim, \
+                    ctr, 128, \
+                    (uint8_t *)(dataMat + i*dim)) != SGX_SUCCESS)
+                printf("\033[33m Encrypt dataMat: \
+                        sgx_aes_ctr_encrypt failed \033[0m\n");
+        }
         t_en[i] = ocall_gettime("\0", 1);
     }
     double t_en_avg = 0;
@@ -334,20 +350,35 @@ void ocall_encrypt(uint8_t *keys, DATATYPE *dataMat, \
     delete[] tmp;
 }
 
-int aggregate(DATATYPE *dataMat, DATATYPE *final_x, \
+int aggregate(DATATYPE *dataMat, \
+                Vector *compressedData, \
+                DATATYPE *final_x, \
+                Vector *compressedX, \
+                DATATYPE *delta, \
                 uint8_t *keys, \
                 int clientNum, int dim, \
                 int k) {
     uint32_t ret = SGX_ERROR_UNEXPECTED;
     ocall_gettime();
-    ecall_clear_final_x(global_eid, &ret, final_x, dim);
+    double t_clear = \
+        ecall_clear_final_x(global_eid, &ret, final_x, dim);
+    if (ret != SGX_SUCCESS) {
+        print_error_message(ret);
+        return -1;
+    }
+    ocall_gettime("\0", 1);
+    printf("%sTime of clear final_x: %fms\n%s\n", KRED, \
+            t_clear, KNRM);
+
+    ecall_clear_final_x(global_eid, &ret, delta, dim);
     if (ret != SGX_SUCCESS) {
         print_error_message(ret);
         return -1;
     }
     printf("Clear final x successfully.\n");
-    ecall_aggregate(global_eid, &ret, dataMat, final_x,\
-            keys, clientNum, dim, k);
+    ocall_gettime();
+    ecall_aggregate(global_eid, &ret, dataMat, compressedData, \
+            compressedX, final_x, keys, clientNum, dim, k);
     if (ret != SGX_SUCCESS) {
         print_error_message(ret);
         return -1;
@@ -382,21 +413,28 @@ int SGX_CDECL main(int argc, char *argv[])
     if(argc==4) {
         k = atoi(argv[3]);
         if(k<=1) {
-            if(atof(argv[3]>0.5)) {
+            if(atof(argv[3])>0.5) {
                 printf("k should be less than 0.5 or greater than 1.\n");
-                return;
+                return 0;
             }
             k = atof(argv[3])*dim;
         }
     }
     srand(time(0));
     DATATYPE *dataMat = new DATATYPE[clientNum * dim];
+    DATATYPE *dataMatC = new DATATYPE[clientNum * dim];
+    Vector *compressedData = new Vector[clientNum];
     DATATYPE *final_x = new DATATYPE[dim];
+    Vector *compressedX = new Vector[clientNum];
+    DATATYPE *delta = new DATATYPE[dim];
     DATATYPE *test_x = new DATATYPE[dim];
     uint8_t *clientKeys = new uint8_t[clientNum*16];
     /* Initialize the enclave */
     printf("init enclave...\n");
     ocall_gettime();
+    if(k>0&&k<dim)
+        for(int i=0;i<clientNum;i++)
+            compressedX[i].elements = new Element[k];
     if(initialize_enclave() < 0) {
         printf("Failed to load enclave.\n");
         goto destroy_enclave;
@@ -410,7 +448,9 @@ int SGX_CDECL main(int argc, char *argv[])
 
     // Randomly generate data
     generate_data(dataMat, clientNum, dim);
-
+    memcpy(dataMatC, dataMat, clientNum*dim*sizeof(DATATYPE));
+    // Randomly generate error vector: delta 
+    generate_data(delta, 1, dim);
     ocall_gettime();
     aggregate_test(dataMat, clientNum, dim, test_x);
     printf("Test aggregate time: %fms\n", \
@@ -419,15 +459,12 @@ int SGX_CDECL main(int argc, char *argv[])
     printf("\n%s[Info] Sizeof data matrix: %ldMB\n%s", KYEL, \
                  (sizeof(DATATYPE)*clientNum*dim)>>20, KNRM);
 
-    if(aggregate(dataMat, final_x, clientKeys,\
-             clientNum, dim, k) < 0) {
+    if(aggregate(dataMat, compressedData, final_x, compressedX, \
+            delta, clientKeys, clientNum, dim, k) < 0) {
         printf("Failed to aggregate.\n");
         goto destroy_enclave;
     }
     printf("Secure aggregation completed!\n");
-
-    // Test whether the results are equal
-    test_aggregate_results(test_x, final_x, dim);
 
     /* Destroy the enclave */
     ocall_gettime();
@@ -435,13 +472,13 @@ destroy_enclave:
     double t_destroy = sgx_destroy_enclave(global_eid);
     ocall_gettime("Destroy enclave", 1);    
     delete[] dataMat;
+    delete[] dataMatC;
     delete[] clientKeys; 
     delete[] final_x;
+    delete[] delta;
     delete[] test_x;
+    delete[] compressedData;
+    delete[] compressedX;
     printf("[Info] Destroy enclave: %fms.\n", t_destroy);
-    
-    // printf("\033[34m threads_finish \033[0m\n");
-    // threads_finish();
-
     return 0;
 }

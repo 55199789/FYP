@@ -11,7 +11,7 @@
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
 #define TIMEPRINT false
-#define DATATYPE int64_t
+#define DATATYPE float
 #define SGXSSL_CTR_BITS	128
 #define SHIFT_BYTE	8
 
@@ -24,6 +24,10 @@ typedef struct Element {
     // 1 -> postive, 0 -> negative
     bool sign; 
 } Element;
+typedef struct Vector {
+    Element* elements;
+    DATATYPE beta;
+} Vector;
 #pragma pack()
 #if defined(__cplusplus)
 }
