@@ -1,0 +1,3200 @@
+init enclave...
+[33m[INFO] Create Enclave: 105.274989ms[0m
+Test aggregate time: 0.025361ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007813ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.534041ms
+[0m
+[31mTime of key exchanges per client: 0.244166ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.119831ms[0m
+[31mTime of data encryption per client: 0.023611ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.493345ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.887337ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.922536ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 113.920777ms[0m
+Test aggregate time: 0.021647ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007333ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.250614ms
+[0m
+[31mTime of key exchanges per client: 0.241789ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.121259ms[0m
+[31mTime of data encryption per client: 0.034052ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.603401ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.899256ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.760604ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 113.742393ms[0m
+Test aggregate time: 0.022849ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007692ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 27.478769ms
+[0m
+[31mTime of key exchanges per client: 0.260300ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.166053ms[0m
+[31mTime of data encryption per client: 0.023201ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.787137ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.875232ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 34.148830ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.957622ms[0m
+Test aggregate time: 0.021619ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007289ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.226616ms
+[0m
+[31mTime of key exchanges per client: 0.244895ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.118730ms[0m
+[31mTime of data encryption per client: 0.023149ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.325304ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.830038ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.389247ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.778793ms[0m
+Test aggregate time: 0.021429ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007562ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.267541ms
+[0m
+[31mTime of key exchanges per client: 0.243095ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.129783ms[0m
+[31mTime of data encryption per client: 0.023738ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.326625ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.889052ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.490780ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.645567ms[0m
+Test aggregate time: 0.021424ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007470ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.365354ms
+[0m
+[31mTime of key exchanges per client: 0.240992ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.014371ms[0m
+[31mTime of data encryption per client: 0.023382ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.338702ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.702694ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.414220ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 100.937275ms[0m
+Test aggregate time: 0.021659ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007429ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.655655ms
+[0m
+[31mTime of key exchanges per client: 0.246578ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.015408ms[0m
+[31mTime of data encryption per client: 0.023116ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.237044ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.682952ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.583080ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.129930ms[0m
+Test aggregate time: 0.021714ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007351ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.405624ms
+[0m
+[31mTime of key exchanges per client: 0.245148ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.248892ms[0m
+[31mTime of data encryption per client: 0.023740ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.329591ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.606122ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.348688ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.388826ms[0m
+Test aggregate time: 0.021597ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007768ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.258289ms
+[0m
+[31mTime of key exchanges per client: 0.242283ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.085206ms[0m
+[31mTime of data encryption per client: 0.023399ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.257633ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.606430ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.130120ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.746123ms[0m
+Test aggregate time: 0.021514ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007657ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.167403ms
+[0m
+[31mTime of key exchanges per client: 0.240610ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.077638ms[0m
+[31mTime of data encryption per client: 0.023690ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.331322ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.995162ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.501544ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 108.651501ms[0m
+Test aggregate time: 0.021619ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007169ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.143293ms
+[0m
+[31mTime of key exchanges per client: 0.243828ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.950339ms[0m
+[31mTime of data encryption per client: 0.023061ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.485430ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.778656ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.414548ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.587124ms[0m
+Test aggregate time: 0.021550ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007836ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.289789ms
+[0m
+[31mTime of key exchanges per client: 0.241618ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.947269ms[0m
+[31mTime of data encryption per client: 0.023074ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.229040ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.841724ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.368389ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.344421ms[0m
+Test aggregate time: 0.021677ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007693ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.202043ms
+[0m
+[31mTime of key exchanges per client: 0.242917ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.145321ms[0m
+[31mTime of data encryption per client: 0.023442ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.257336ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.680405ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.147477ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.119927ms[0m
+Test aggregate time: 0.021636ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007321ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.860547ms
+[0m
+[31mTime of key exchanges per client: 0.248184ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.091218ms[0m
+[31mTime of data encryption per client: 0.023788ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.336815ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.688621ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.893304ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.706556ms[0m
+Test aggregate time: 0.021593ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007285ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.149029ms
+[0m
+[31mTime of key exchanges per client: 0.242956ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.134350ms[0m
+[31mTime of data encryption per client: 0.023762ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.368011ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.623293ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.147618ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.765151ms[0m
+Test aggregate time: 0.021938ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007941ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.828283ms
+[0m
+[31mTime of key exchanges per client: 0.247889ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.164637ms[0m
+[31mTime of data encryption per client: 0.023141ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.256389ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.710002ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.802615ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.422105ms[0m
+Test aggregate time: 0.022897ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.009382ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 28.974870ms
+[0m
+[31mTime of key exchanges per client: 0.268117ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.126615ms[0m
+[31mTime of data encryption per client: 0.023034ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.388595ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.690581ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 35.063428ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 107.226608ms[0m
+Test aggregate time: 0.021514ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007437ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.286870ms
+[0m
+[31mTime of key exchanges per client: 0.243026ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.052157ms[0m
+[31mTime of data encryption per client: 0.023803ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.352627ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.783947ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.430881ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.338389ms[0m
+Test aggregate time: 0.021884ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007472ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.154539ms
+[0m
+[31mTime of key exchanges per client: 0.242152ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.995625ms[0m
+[31mTime of data encryption per client: 0.023496ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.299577ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.733200ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.194788ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.527376ms[0m
+Test aggregate time: 0.021428ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007205ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.402623ms
+[0m
+[31mTime of key exchanges per client: 0.245779ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.977151ms[0m
+[31mTime of data encryption per client: 0.023142ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.321056ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.775194ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.506078ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 108.413147ms[0m
+Test aggregate time: 0.021568ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007616ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.299999ms
+[0m
+[31mTime of key exchanges per client: 0.242141ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.007010ms[0m
+[31mTime of data encryption per client: 0.023484ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.474797ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.636212ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.418624ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.567824ms[0m
+Test aggregate time: 0.021550ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007413ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.083088ms
+[0m
+[31mTime of key exchanges per client: 0.242964ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.004055ms[0m
+[31mTime of data encryption per client: 0.024034ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.226060ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.835193ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.151754ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.879970ms[0m
+Test aggregate time: 0.021609ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007569ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.300590ms
+[0m
+[31mTime of key exchanges per client: 0.241455ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.174165ms[0m
+[31mTime of data encryption per client: 0.023169ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.271220ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.679028ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.258407ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 107.681445ms[0m
+Test aggregate time: 0.021551ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007518ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.401095ms
+[0m
+[31mTime of key exchanges per client: 0.245396ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.181409ms[0m
+[31mTime of data encryption per client: 0.023215ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.303222ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.644482ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.356317ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.541641ms[0m
+Test aggregate time: 0.021479ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007597ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.331585ms
+[0m
+[31mTime of key exchanges per client: 0.243609ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.062665ms[0m
+[31mTime of data encryption per client: 0.023081ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.276476ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.606087ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.221745ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.500497ms[0m
+Test aggregate time: 0.021519ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007182ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.138944ms
+[0m
+[31mTime of key exchanges per client: 0.243988ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.163137ms[0m
+[31mTime of data encryption per client: 0.023547ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.337693ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.761888ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.245707ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.848592ms[0m
+Test aggregate time: 0.021502ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007533ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.098321ms
+[0m
+[31mTime of key exchanges per client: 0.241823ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.076119ms[0m
+[31mTime of data encryption per client: 0.023636ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.359501ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.828838ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.294193ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 106.624557ms[0m
+Test aggregate time: 0.021504ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007397ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.005218ms
+[0m
+[31mTime of key exchanges per client: 0.241701ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.962631ms[0m
+[31mTime of data encryption per client: 0.023733ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.350997ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.551037ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 31.914649ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.147199ms[0m
+Test aggregate time: 0.021724ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007393ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.466520ms
+[0m
+[31mTime of key exchanges per client: 0.243659ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.963714ms[0m
+[31mTime of data encryption per client: 0.023409ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.213872ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.697011ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.384796ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.819064ms[0m
+Test aggregate time: 0.021758ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.010950ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.282974ms
+[0m
+[31mTime of key exchanges per client: 0.243359ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.245774ms[0m
+[31mTime of data encryption per client: 0.023907ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.305825ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.720071ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.319820ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.907187ms[0m
+Test aggregate time: 0.022010ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007710ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.743052ms
+[0m
+[31mTime of key exchanges per client: 0.246973ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.079313ms[0m
+[31mTime of data encryption per client: 0.023508ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.326635ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.819978ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.897375ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.678523ms[0m
+Test aggregate time: 0.021986ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007700ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.745614ms
+[0m
+[31mTime of key exchanges per client: 0.248494ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.062940ms[0m
+[31mTime of data encryption per client: 0.023624ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.473022ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.680580ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.906916ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.793204ms[0m
+Test aggregate time: 0.021658ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007343ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.313605ms
+[0m
+[31mTime of key exchanges per client: 0.243312ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.195606ms[0m
+[31mTime of data encryption per client: 0.023669ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.254500ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.733681ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.309129ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 105.185692ms[0m
+Test aggregate time: 0.021549ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.008039ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.218640ms
+[0m
+[31mTime of key exchanges per client: 0.243110ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.182457ms[0m
+[31mTime of data encryption per client: 0.023536ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.349167ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.855533ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.431379ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.935929ms[0m
+Test aggregate time: 0.021981ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007740ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 27.157012ms
+[0m
+[31mTime of key exchanges per client: 0.251335ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.200347ms[0m
+[31mTime of data encryption per client: 0.023609ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.380926ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.644117ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.189795ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 105.602539ms[0m
+Test aggregate time: 0.021969ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007601ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.212724ms
+[0m
+[31mTime of key exchanges per client: 0.244156ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.096833ms[0m
+[31mTime of data encryption per client: 0.023493ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.309978ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.633954ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.164257ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 106.886510ms[0m
+Test aggregate time: 0.021732ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007467ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.119257ms
+[0m
+[31mTime of key exchanges per client: 0.241419ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.084713ms[0m
+[31mTime of data encryption per client: 0.025161ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.305536ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.883662ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.315922ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.375675ms[0m
+Test aggregate time: 0.021625ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007388ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 29.214998ms
+[0m
+[31mTime of key exchanges per client: 0.268453ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.137573ms[0m
+[31mTime of data encryption per client: 0.023931ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.401358ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.816041ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 35.439785ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.300664ms[0m
+Test aggregate time: 0.022949ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007651ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 28.211476ms
+[0m
+[31mTime of key exchanges per client: 0.262475ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.104941ms[0m
+[31mTime of data encryption per client: 0.023760ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.282419ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.722156ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 34.223702ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.563322ms[0m
+Test aggregate time: 0.021602ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.008096ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.094012ms
+[0m
+[31mTime of key exchanges per client: 0.241666ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.950303ms[0m
+[31mTime of data encryption per client: 0.023092ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.475400ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.633570ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.211078ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.705272ms[0m
+Test aggregate time: 0.021556ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007548ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.082944ms
+[0m
+[31mTime of key exchanges per client: 0.241893ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.055183ms[0m
+[31mTime of data encryption per client: 0.023824ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.299983ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.683369ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.073844ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 106.437936ms[0m
+Test aggregate time: 0.021547ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007585ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.188725ms
+[0m
+[31mTime of key exchanges per client: 0.242870ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.039931ms[0m
+[31mTime of data encryption per client: 0.023398ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.243349ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.615842ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.055501ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.494744ms[0m
+Test aggregate time: 0.021700ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.008124ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.304792ms
+[0m
+[31mTime of key exchanges per client: 0.240864ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.120127ms[0m
+[31mTime of data encryption per client: 0.023629ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.368998ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.784845ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.466759ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 108.133157ms[0m
+Test aggregate time: 0.027680ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.008793ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 28.042366ms
+[0m
+[31mTime of key exchanges per client: 0.258563ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.112079ms[0m
+[31mTime of data encryption per client: 0.023388ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.362245ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.629818ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 34.043222ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 108.009931ms[0m
+Test aggregate time: 0.021667ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007513ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.220569ms
+[0m
+[31mTime of key exchanges per client: 0.241660ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.152133ms[0m
+[31mTime of data encryption per client: 0.023375ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.323012ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.646973ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.198067ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 111.670661ms[0m
+Test aggregate time: 0.021519ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007494ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.250559ms
+[0m
+[31mTime of key exchanges per client: 0.242788ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.090964ms[0m
+[31mTime of data encryption per client: 0.024642ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.391430ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.713678ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.363161ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.664159ms[0m
+Test aggregate time: 0.021645ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007416ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.066242ms
+[0m
+[31mTime of key exchanges per client: 0.242635ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.080630ms[0m
+[31mTime of data encryption per client: 0.023138ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.234740ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.832598ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.140996ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.129876ms[0m
+Test aggregate time: 0.021467ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007308ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.233209ms
+[0m
+[31mTime of key exchanges per client: 0.241368ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.060897ms[0m
+[31mTime of data encryption per client: 0.023710ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.280818ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.588155ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.109490ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.457071ms[0m
+Test aggregate time: 0.021593ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007564ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.623153ms
+[0m
+[31mTime of key exchanges per client: 0.247047ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.066863ms[0m
+[31mTime of data encryption per client: 0.023129ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.367088ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.669166ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.666971ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.204598ms[0m
+Test aggregate time: 0.021640ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007472ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.085123ms
+[0m
+[31mTime of key exchanges per client: 0.243722ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.110686ms[0m
+[31mTime of data encryption per client: 0.023460ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.246806ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.678832ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.018233ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.885187ms[0m
+Test aggregate time: 0.021746ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007519ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.248304ms
+[0m
+[31mTime of key exchanges per client: 0.242305ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.060179ms[0m
+[31mTime of data encryption per client: 0.023550ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.406286ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.686139ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.348248ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.413904ms[0m
+Test aggregate time: 0.021518ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.008045ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.340992ms
+[0m
+[31mTime of key exchanges per client: 0.242562ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.988489ms[0m
+[31mTime of data encryption per client: 0.023097ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.261228ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.606778ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.217043ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.202015ms[0m
+Test aggregate time: 0.021370ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007742ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.237207ms
+[0m
+[31mTime of key exchanges per client: 0.241464ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.189451ms[0m
+[31mTime of data encryption per client: 0.023364ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.288164ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.704021ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.237134ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.254397ms[0m
+Test aggregate time: 0.021493ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007590ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.010976ms
+[0m
+[31mTime of key exchanges per client: 0.243584ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.205357ms[0m
+[31mTime of data encryption per client: 0.023367ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.250854ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.672592ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 31.942012ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.146462ms[0m
+Test aggregate time: 0.021677ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007299ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.237350ms
+[0m
+[31mTime of key exchanges per client: 0.243788ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.923157ms[0m
+[31mTime of data encryption per client: 0.023468ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.281820ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.659251ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.185720ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.887733ms[0m
+Test aggregate time: 0.021519ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007301ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.323838ms
+[0m
+[31mTime of key exchanges per client: 0.242915ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.072529ms[0m
+[31mTime of data encryption per client: 0.023440ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.322631ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.733704ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.387474ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 100.925033ms[0m
+Test aggregate time: 0.021619ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007343ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.093933ms
+[0m
+[31mTime of key exchanges per client: 0.241636ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.123917ms[0m
+[31mTime of data encryption per client: 0.023476ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.266777ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.624078ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 31.992131ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.437801ms[0m
+Test aggregate time: 0.021570ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007502ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.116169ms
+[0m
+[31mTime of key exchanges per client: 0.241542ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.097864ms[0m
+[31mTime of data encryption per client: 0.023239ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.334390ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.773780ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.231841ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 109.417831ms[0m
+Test aggregate time: 0.021452ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007254ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 25.982883ms
+[0m
+[31mTime of key exchanges per client: 0.241110ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.108824ms[0m
+[31mTime of data encryption per client: 0.023187ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.289385ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.629643ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 31.909165ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.586564ms[0m
+Test aggregate time: 0.022060ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007849ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.124375ms
+[0m
+[31mTime of key exchanges per client: 0.242345ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.142578ms[0m
+[31mTime of data encryption per client: 0.023382ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.354440ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.523348ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.010012ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 113.461945ms[0m
+Test aggregate time: 0.021641ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007352ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.652025ms
+[0m
+[31mTime of key exchanges per client: 0.246484ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.079352ms[0m
+[31mTime of data encryption per client: 0.023945ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.337346ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.840952ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.837675ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.344072ms[0m
+Test aggregate time: 0.021746ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007314ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.510008ms
+[0m
+[31mTime of key exchanges per client: 0.247177ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.128072ms[0m
+[31mTime of data encryption per client: 0.023150ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.283162ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.640086ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.440570ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 118.326551ms[0m
+Test aggregate time: 0.021367ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007549ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.213318ms
+[0m
+[31mTime of key exchanges per client: 0.241878ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.076800ms[0m
+[31mTime of data encryption per client: 0.023762ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.265701ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.764297ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.250865ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.131035ms[0m
+Test aggregate time: 0.021510ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007647ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.246302ms
+[0m
+[31mTime of key exchanges per client: 0.243754ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.093378ms[0m
+[31mTime of data encryption per client: 0.023773ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.354686ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.881042ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.489677ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.975512ms[0m
+Test aggregate time: 0.021687ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007645ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.253782ms
+[0m
+[31mTime of key exchanges per client: 0.243133ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.054245ms[0m
+[31mTime of data encryption per client: 0.023700ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.288608ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.633521ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.183556ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.537333ms[0m
+Test aggregate time: 0.021523ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007868ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.273092ms
+[0m
+[31mTime of key exchanges per client: 0.245107ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.123872ms[0m
+[31mTime of data encryption per client: 0.024031ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.320843ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.611401ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.213204ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.661751ms[0m
+Test aggregate time: 0.021687ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007928ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.441932ms
+[0m
+[31mTime of key exchanges per client: 0.246079ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.141497ms[0m
+[31mTime of data encryption per client: 0.023899ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.265182ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.707634ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.422676ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.441173ms[0m
+Test aggregate time: 0.021724ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007470ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.086556ms
+[0m
+[31mTime of key exchanges per client: 0.240888ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.101220ms[0m
+[31mTime of data encryption per client: 0.024940ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.295561ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.775802ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.165389ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 110.769447ms[0m
+Test aggregate time: 0.022312ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007711ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 27.592821ms
+[0m
+[31mTime of key exchanges per client: 0.254955ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.143957ms[0m
+[31mTime of data encryption per client: 0.025835ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.267540ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 4.001675ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.869747ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.396534ms[0m
+Test aggregate time: 0.021883ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007941ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.435727ms
+[0m
+[31mTime of key exchanges per client: 0.244045ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.228223ms[0m
+[31mTime of data encryption per client: 0.023432ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.388032ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.633875ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.465575ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.148466ms[0m
+Test aggregate time: 0.021590ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007968ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.252419ms
+[0m
+[31mTime of key exchanges per client: 0.242765ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.011181ms[0m
+[31mTime of data encryption per client: 0.023728ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.351238ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.632633ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.244258ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 107.956114ms[0m
+Test aggregate time: 0.021600ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007418ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.365367ms
+[0m
+[31mTime of key exchanges per client: 0.243852ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.046423ms[0m
+[31mTime of data encryption per client: 0.023468ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.222010ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.655870ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.250665ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.496079ms[0m
+Test aggregate time: 0.021540ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007250ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.407399ms
+[0m
+[31mTime of key exchanges per client: 0.245180ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.049287ms[0m
+[31mTime of data encryption per client: 0.023118ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.358714ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.504926ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.278289ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.952388ms[0m
+Test aggregate time: 0.021470ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007282ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.032391ms
+[0m
+[31mTime of key exchanges per client: 0.241705ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.053286ms[0m
+[31mTime of data encryption per client: 0.023410ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.341575ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.731164ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.112412ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.868170ms[0m
+Test aggregate time: 0.021746ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007994ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.417940ms
+[0m
+[31mTime of key exchanges per client: 0.243760ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.079835ms[0m
+[31mTime of data encryption per client: 0.024200ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.337018ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.711862ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.474814ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.758003ms[0m
+Test aggregate time: 0.021651ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007562ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.285749ms
+[0m
+[31mTime of key exchanges per client: 0.243477ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.056378ms[0m
+[31mTime of data encryption per client: 0.023547ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.259930ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.658248ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.211489ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 107.248272ms[0m
+Test aggregate time: 0.021397ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007454ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.059829ms
+[0m
+[31mTime of key exchanges per client: 0.241682ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.053269ms[0m
+[31mTime of data encryption per client: 0.023511ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.288535ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.656984ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.012802ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 105.092144ms[0m
+Test aggregate time: 0.021706ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007332ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.098446ms
+[0m
+[31mTime of key exchanges per client: 0.241552ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.031025ms[0m
+[31mTime of data encryption per client: 0.023633ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.239924ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.497833ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 31.843535ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 106.026811ms[0m
+Test aggregate time: 0.021677ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007391ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.218095ms
+[0m
+[31mTime of key exchanges per client: 0.242969ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.037099ms[0m
+[31mTime of data encryption per client: 0.024242ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.279086ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.646209ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.150781ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.612032ms[0m
+Test aggregate time: 0.021510ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007401ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.518525ms
+[0m
+[31mTime of key exchanges per client: 0.244964ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.973777ms[0m
+[31mTime of data encryption per client: 0.023202ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.392152ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.636903ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.554981ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.348898ms[0m
+Test aggregate time: 0.021537ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007416ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.376100ms
+[0m
+[31mTime of key exchanges per client: 0.244420ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.995579ms[0m
+[31mTime of data encryption per client: 0.023071ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.279608ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.755171ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.418295ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 106.898588ms[0m
+Test aggregate time: 0.021427ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007613ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.193274ms
+[0m
+[31mTime of key exchanges per client: 0.242487ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.026934ms[0m
+[31mTime of data encryption per client: 0.024421ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.454245ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.714622ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.369754ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.875677ms[0m
+Test aggregate time: 0.021756ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007696ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.183449ms
+[0m
+[31mTime of key exchanges per client: 0.242923ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.962379ms[0m
+[31mTime of data encryption per client: 0.023670ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.324614ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.682044ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.197803ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 113.329938ms[0m
+Test aggregate time: 0.021824ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007826ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.600944ms
+[0m
+[31mTime of key exchanges per client: 0.246087ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.032804ms[0m
+[31mTime of data encryption per client: 0.023104ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.310376ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.803837ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.722983ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.371797ms[0m
+Test aggregate time: 0.021967ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007635ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.801496ms
+[0m
+[31mTime of key exchanges per client: 0.247193ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.054538ms[0m
+[31mTime of data encryption per client: 0.023755ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.335458ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.744883ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.889472ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 110.315479ms[0m
+Test aggregate time: 0.022141ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007633ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.794680ms
+[0m
+[31mTime of key exchanges per client: 0.246821ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.104457ms[0m
+[31mTime of data encryption per client: 0.023706ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.320454ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.714270ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.837037ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.798891ms[0m
+Test aggregate time: 0.022604ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007898ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.895472ms
+[0m
+[31mTime of key exchanges per client: 0.248347ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.014415ms[0m
+[31mTime of data encryption per client: 0.024004ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.372276ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.814077ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.089723ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.350680ms[0m
+Test aggregate time: 0.021468ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007223ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.205164ms
+[0m
+[31mTime of key exchanges per client: 0.244947ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.127835ms[0m
+[31mTime of data encryption per client: 0.024929ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.361003ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.728587ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.301977ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.532333ms[0m
+Test aggregate time: 0.021474ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007322ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.360378ms
+[0m
+[31mTime of key exchanges per client: 0.244744ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.145820ms[0m
+[31mTime of data encryption per client: 0.023881ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.301109ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.711254ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.380063ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 107.640727ms[0m
+Test aggregate time: 0.021645ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.008162ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.548388ms
+[0m
+[31mTime of key exchanges per client: 0.247928ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.110093ms[0m
+[31mTime of data encryption per client: 0.023434ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.381700ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.751938ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.690188ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.736576ms[0m
+Test aggregate time: 0.021722ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007559ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.624138ms
+[0m
+[31mTime of key exchanges per client: 0.245842ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.109714ms[0m
+[31mTime of data encryption per client: 0.023517ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.380062ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.638331ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.650090ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 110.029166ms[0m
+Test aggregate time: 0.021854ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.011774ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.376221ms
+[0m
+[31mTime of key exchanges per client: 0.245996ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.079086ms[0m
+[31mTime of data encryption per client: 0.035590ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 3.411678ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.665218ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.464891ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.717468ms[0m
+Test aggregate time: 0.021962ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007548ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 27.134797ms
+[0m
+[31mTime of key exchanges per client: 0.245480ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.216855ms[0m
+[31mTime of data encryption per client: 0.023425ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.328859ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.755242ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.226446ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.934609ms[0m
+Test aggregate time: 0.021777ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.008030ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.291306ms
+[0m
+[31mTime of key exchanges per client: 0.245297ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.265319ms[0m
+[31mTime of data encryption per client: 0.023216ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.320494ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.850430ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.470260ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 102.325192ms[0m
+Test aggregate time: 0.023640ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007571ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 29.318959ms
+[0m
+[31mTime of key exchanges per client: 0.267781ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.160456ms[0m
+[31mTime of data encryption per client: 0.024071ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.418586ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.683163ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 35.428279ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.363165ms[0m
+Test aggregate time: 0.021771ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007868ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.783886ms
+[0m
+[31mTime of key exchanges per client: 0.247605ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.027276ms[0m
+[31mTime of data encryption per client: 0.024366ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.370236ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.846771ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.008761ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 103.180303ms[0m
+Test aggregate time: 0.021934ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007469ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.950353ms
+[0m
+[31mTime of key exchanges per client: 0.247721ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 2.983554ms[0m
+[31mTime of data encryption per client: 0.023761ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.293641ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 4.063739ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.315202ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 104.562837ms[0m
+Test aggregate time: 0.021480ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007155ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.565568ms
+[0m
+[31mTime of key exchanges per client: 0.245486ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.119449ms[0m
+[31mTime of data encryption per client: 0.023677ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.345528ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.485152ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.403403ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 101.931972ms[0m
+Test aggregate time: 0.021629ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007785ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 26.255314ms
+[0m
+[31mTime of key exchanges per client: 0.243284ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.179475ms[0m
+[31mTime of data encryption per client: 0.023182ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.356035ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.727666ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 32.346800ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
+init enclave...
+[33m[INFO] Create Enclave: 112.203761ms[0m
+Test aggregate time: 0.021647ms
+
+[33m[Info] Sizeof data matrix: 38MB
+[0m[DEBUG] loaded num: 100000, times: 1
+[31mTime of clear final_x: 0.000000ms
+[0m
+[DEBUG] loaded num: 100000, times: 1
+Clear final x successfully.
+[31mTime of entering the enclave: 0.007332ms[0m
+[DEBUG] Sizeof all required data in enclave: 1572 KB
+[31mTime of key exchanges for 100 clients: 27.232799ms
+[0m
+[31mTime of key exchanges per client: 0.252458ms
+[0m
+Encrpyting user data...
+[31mTime of data compression per client: 3.118247ms[0m
+[31mTime of data encryption per client: 0.023157ms[0m
+Encprtion completed.
+
+[DEBUG] Times: 1, loaded dim: 100000
+[31mTime of secure aggregation: 2.238379ms[0m
+
+[33m[INFO] Aggregate successfully.
+
+[0m[31mTotal time of compression: 3.607213ms[0m
+[33m[INFO] Compress successfully.
+[0m[31mTotal time inside the Enclave: 33.085723ms[0m
+
+Secure aggregation completed!
+[Info] Destroy enclave: 0.000000ms.
